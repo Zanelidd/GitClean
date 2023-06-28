@@ -1,8 +1,4 @@
-CREATE TABLE
-    `category` (
-        `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-        `name` VARCHAR(254) NOT NULL
-    );
+-- Active: 1686231917905@@127.0.0.1@3306@hackathon2
 
 CREATE TABLE
     `os` (
@@ -29,32 +25,39 @@ CREATE TABLE
     );
 
 CREATE TABLE
-    `model` (
+    `brand` (
         `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-        `name` VARCHAR(254) NOT NULL,
-        `model_storage_id` INT NOT NULL,
-        `model_ram_id` INT NOT NULL,
-        `network_id` INT NOT NULL,
-        `os_id` INT NOT NULL,
-        FOREIGN KEY(`os_id`) REFERENCES `os` (id),
-        FOREIGN KEY(`network_id`) REFERENCES `network` (id)
+        `name` VARCHAR(254) NOT NULL
     );
 
 CREATE TABLE
-    `model_storage` (
-        `model_id` INT NOT NULL,
-        `storage_id` INT  NOT NULL,
-        PRIMARY KEY (`model_id`,`storage_id`),
-        FOREIGN KEY(`model_id`) REFERENCES `model` (id),
+    `product` (
+        `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+        `brand_id` INT NOT NULL, 
+        `model` VARCHAR(254) NOT NULL,
+        `screen_size` VARCHAR(254) NOT NULL,
+        `network_id` int NOT NULL,
+        `os_id` INT NOT NULL,
+        FOREIGN KEY(`brand_id`) REFERENCES `brand`(id),
+        FOREIGN KEY(`network_id`) REFERENCES `network`(id),
+        FOREIGN KEY(`os_id`) REFERENCES `os`(id)
+    );
+
+CREATE TABLE
+    `product_storage` (
+        `product_id` INT NOT NULL,
+        `storage_id` INT NOT NULL,
+        PRIMARY KEY (`product_id`, `storage_id`),
+        FOREIGN KEY(`product_id`) REFERENCES `product` (id),
         FOREIGN KEY(`storage_id`) REFERENCES `storage` (id)
     );
 
 CREATE TABLE
-    `model_ram` (
-        `model_id` INT  NOT NULL,
-        `ram_id` INT  NOT NULL,
-        PRIMARY KEY (`model_id`,`ram_id`),
-        FOREIGN KEY(`model_id`) REFERENCES `model` (id),
+    `product_ram` (
+        `product_id` INT NOT NULL,
+        `ram_id` INT NOT NULL,
+        PRIMARY KEY (`product_id`, `ram_id`),
+        FOREIGN KEY(`product_id`) REFERENCES `product` (id),
         FOREIGN KEY(`ram_id`) REFERENCES `ram` (id)
     );
 
@@ -65,20 +68,11 @@ CREATE TABLE
     );
 
 CREATE TABLE
-    `product` (
+    `category` (
         `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-        `imei` VARCHAR(254) NOT NULL,
-        `model_id` int NOT NULL,
-        `category_id` int NOT NULL,
-        `state` int NOT NULL,
-        `storage` int NOT NULL,
-        `ram_id` int NOT NULL,
-        `network_id` int NOT NULL,
-        FOREIGN KEY(`model_id`) REFERENCES `model`(id),
-        FOREIGN KEY(`category_id`) REFERENCES `category`(id),
-        FOREIGN KEY(`ram_id`) REFERENCES `ram`(id),
-        FOREIGN KEY(`network_id`) REFERENCES `network`(id),
-        FOREIGN KEY(`state`) REFERENCES `state`(id)
+        `name` VARCHAR(254) NOT NULL,
+        `min_value` FLOAT(2) NULL,
+        `max_value` FLOAT(2) NULL        
     );
 
 CREATE TABLE
@@ -92,3 +86,19 @@ CREATE TABLE
         `admin` tinyint NOT NULL,
         `statut` VARCHAR(254) NOT NULL
     );
+
+INSERT INTO category (name, min_value, max_value)
+VALUES ('HC',null,null), ('C',90,164.99), ('B',165,254.99), ('A',255,374.99), ('Premium',375,null);
+
+INSERT INTO state (name)
+VALUES ('DEEE'), ('REPARABLE'), ('BLOQUE'), ('RECONDITIONABLE'), ('RECONDITIONNE');
+
+INSERT INTO os (version) VALUES ('Android-v13'),('IOS-v16.5.1');
+
+INSERT INTO ram (name)
+VALUES ('1'), ('2'), ('3'), ('4'), ('6'), ('8'), ('12'), ('16');
+
+INSERT INTO storage (name)
+VALUES ('16'), ('32'), ('64'), ('128'), ('256'), ('512'), ('1000');
+
+INSERT INTO network (name) VALUES ('3G'),('4G'),('5G');
