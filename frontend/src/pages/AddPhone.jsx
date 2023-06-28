@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 import addButton from "../assets/add.svg";
@@ -10,6 +11,8 @@ function AddPhone() {
   const [rams, setRams] = useState([]);
   const [storages, setStorages] = useState([]);
   const [invalidFields, setInvalidFields] = useState(new Set());
+  const [isAdded, setIsAdded] = useState(false);
+  const [invalidProductAddition, setInvalidProductAddition] = useState("");
   const host = import.meta.env.VITE_BACKEND_URL;
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,6 +30,26 @@ function AddPhone() {
       }
     }
     setInvalidFields(errors);
+
+    if (!errors.size) {
+      const fields = {
+        ramIds: data
+          .getAll("ramId")
+          .map((number) => Number.parseInt(number, 10)),
+        storageIds: data
+          .getAll("storageId")
+          .map((number) => Number.parseInt(number, 10)),
+      };
+      for (const key of data.keys()) {
+        if (!checkboxes.includes(key)) fields[key] = data.get(key);
+      }
+      axios
+        .post(`${host}/products`, fields)
+        .then((response) => {
+          if (response.status === 201) setIsAdded(true);
+        })
+        .catch((err) => setInvalidProductAddition(err.response.data.error));
+    }
   };
 
   useEffect(() => {
@@ -53,117 +76,60 @@ function AddPhone() {
   }, []);
 
   return (
-    <form className="add-phone" onSubmit={handleSubmit} noValidate>
-      <h1>Ajouter un appareil</h1>
-      <p>Tous les champs sont obligatoires</p>
-      <p className="additionable-field">
-        <label htmlFor="add-os-id">Système d’exploitation et version</label>
-        <select id="add-os-id" name="osId" required>
-          {oss.map((os) => {
-            const { id, version } = os;
-            return (
-              <option key={id} value={id}>
-                {version}
-              </option>
-            );
-          })}
-        </select>
-        <button
-          type="button"
-          className="add-extra"
-          title="Ajouter une version de système d’exploitation"
-        >
-          <img
-            src={addButton}
-            alt="Ajouter une version de système d’exploitation"
-          />
-        </button>
-      </p>
-      <p className="additionable-field">
-        <label htmlFor="add-brand-id">Marque</label>
-        <select id="add-brand-id" name="brandId" required>
-          {brands.map((brand) => {
-            const { id, name } = brand;
-            return (
-              <option key={id} value={id}>
-                {name}
-              </option>
-            );
-          })}
-        </select>
-        <button
-          type="button"
-          className="add-extra"
-          title="Ajouter une mémoire RAM"
-        >
-          <img src={addButton} alt="Ajouter une mémoire RAM" />
-        </button>
-      </p>
-      <p>
-        <label htmlFor="add-model">
-          Modèle
-          {invalidFields.has("model") && (
-            <span className="error">(le modèle doit être saisi)</span>
-          )}
-        </label>
-        <input id="add-model" name="model" type="text" required />
-      </p>
-      <p>
-        <label htmlFor="add-screen-size">
-          Taille d’écran (en pouces)
-          {invalidFields.has("screenSize") && (
-            <span className="error">(la taille d’écran doit être saisie)</span>
-          )}
-        </label>
-        <input
-          id="add-screen-size"
-          name="screenSize"
-          type="number"
-          min="0.1"
-          step="0.1"
-          required
-        />
-      </p>
-      <p>
-        <label htmlFor="add-network-id">
-          Réseau (sélectionnez le meilleur réseau compatible)
-        </label>
-        <select id="add-network-id" name="networkId" required>
-          {networks.map((network) => {
-            const { id, name } = network;
-            return (
-              <option key={id} value={id}>
-                {name}
-              </option>
-            );
-          })}
-        </select>
-      </p>
-      <fieldset>
-        <legend>
-          Mémoire RAM
-          {invalidFields.has("ramId") && (
-            <span className="error">
-              (au moins une mémoire RAM doit être cochée)
-            </span>
-          )}
-        </legend>
-        <ul>
-          {rams.map((ram) => {
-            const { id, name } = ram;
-            return (
-              <li key={id}>
-                <input
-                  id={`add-ram-id-${id}`}
-                  name="ramId"
-                  type="checkbox"
-                  value={id}
-                />
-                <label htmlFor={`add-ram-id-${id}`}>{name}</label>
-              </li>
-            );
-          })}
-          <li>
+    // eslint-disable-next-line react/jsx-no-useless-fragment
+    <>
+      {isAdded ? (
+        <section className="add-phone">
+          <h1>Ajouter un apparail</h1>
+          <p>L’appareil a été ajouté avec succès.</p>
+          <p>
+            <Link to="/">Retour à l’accueil</Link>
+          </p>
+        </section>
+      ) : (
+        <form className="add-phone" onSubmit={handleSubmit} noValidate>
+          <h1>Ajouter un appareil</h1>
+          <p>
+            Tous les champs sont obligatoires
+            {invalidProductAddition && (
+              <span className="error">{invalidProductAddition}</span>
+            )}
+          </p>
+          <p className="additionable-field">
+            <label htmlFor="add-os-id">Système d’exploitation et version</label>
+            <select id="add-os-id" name="osId" required>
+              {oss.map((os) => {
+                const { id, version } = os;
+                return (
+                  <option key={id} value={id}>
+                    {version}
+                  </option>
+                );
+              })}
+            </select>
+            <button
+              type="button"
+              className="add-extra"
+              title="Ajouter une version de système d’exploitation"
+            >
+              <img
+                src={addButton}
+                alt="Ajouter une version de système d’exploitation"
+              />
+            </button>
+          </p>
+          <p className="additionable-field">
+            <label htmlFor="add-brand-id">Marque</label>
+            <select id="add-brand-id" name="brandId" required>
+              {brands.map((brand) => {
+                const { id, name } = brand;
+                return (
+                  <option key={id} value={id}>
+                    {name}
+                  </option>
+                );
+              })}
+            </select>
             <button
               type="button"
               className="add-extra"
@@ -171,48 +137,125 @@ function AddPhone() {
             >
               <img src={addButton} alt="Ajouter une mémoire RAM" />
             </button>
-          </li>
-        </ul>
-      </fieldset>
-      <fieldset>
-        <legend>
-          Capacités de stockage
-          {invalidFields.has("storageId") && (
-            <span className="error">
-              (au moins une capacité de stockage doit être cochée)
-            </span>
-          )}
-        </legend>
-        <ul>
-          {storages.map((storage) => {
-            const { id, name } = storage;
-            return (
-              <li key={id}>
-                <input
-                  id={`add-storage-id-${id}`}
-                  name="storageId"
-                  type="checkbox"
-                  value={id}
-                />
-                <label htmlFor={`add-storage-id-${id}`}>{name}</label>
+          </p>
+          <p>
+            <label htmlFor="add-model">
+              Modèle
+              {invalidFields.has("model") && (
+                <span className="error">(le modèle doit être saisi)</span>
+              )}
+            </label>
+            <input id="add-model" name="model" type="text" required />
+          </p>
+          <p>
+            <label htmlFor="add-screen-size">
+              Taille d’écran (en pouces)
+              {invalidFields.has("screenSize") && (
+                <span className="error">
+                  (la taille d’écran doit être saisie)
+                </span>
+              )}
+            </label>
+            <input
+              id="add-screen-size"
+              name="screenSize"
+              type="number"
+              min="0.1"
+              step="0.1"
+              required
+            />
+          </p>
+          <p>
+            <label htmlFor="add-network-id">
+              Réseau (sélectionnez le meilleur réseau compatible)
+            </label>
+            <select id="add-network-id" name="networkId" required>
+              {networks.map((network) => {
+                const { id, name } = network;
+                return (
+                  <option key={id} value={id}>
+                    {name}
+                  </option>
+                );
+              })}
+            </select>
+          </p>
+          <fieldset>
+            <legend>
+              Mémoire RAM
+              {invalidFields.has("ramId") && (
+                <span className="error">
+                  (au moins une mémoire RAM doit être cochée)
+                </span>
+              )}
+            </legend>
+            <ul>
+              {rams.map((ram) => {
+                const { id, name } = ram;
+                return (
+                  <li key={id}>
+                    <input
+                      id={`add-ram-id-${id}`}
+                      name="ramId"
+                      type="checkbox"
+                      value={id}
+                    />
+                    <label htmlFor={`add-ram-id-${id}`}>{name}</label>
+                  </li>
+                );
+              })}
+              <li>
+                <button
+                  type="button"
+                  className="add-extra"
+                  title="Ajouter une mémoire RAM"
+                >
+                  <img src={addButton} alt="Ajouter une mémoire RAM" />
+                </button>
               </li>
-            );
-          })}
-          <li>
-            <button
-              type="button"
-              className="add-extra"
-              title="Ajouter une capacité de stockage"
-            >
-              <img src={addButton} alt="Ajouter une capacité de stockage" />
-            </button>
-          </li>
-        </ul>
-      </fieldset>
-      <p>
-        <input type="submit" value="Ajouter cet appareil" />
-      </p>
-    </form>
+            </ul>
+          </fieldset>
+          <fieldset>
+            <legend>
+              Capacités de stockage
+              {invalidFields.has("storageId") && (
+                <span className="error">
+                  (au moins une capacité de stockage doit être cochée)
+                </span>
+              )}
+            </legend>
+            <ul>
+              {storages.map((storage) => {
+                const { id, name } = storage;
+                return (
+                  <li key={id}>
+                    <input
+                      id={`add-storage-id-${id}`}
+                      name="storageId"
+                      type="checkbox"
+                      value={id}
+                    />
+                    <label htmlFor={`add-storage-id-${id}`}>{name}</label>
+                  </li>
+                );
+              })}
+              <li>
+                <button
+                  type="button"
+                  className="add-extra"
+                  title="Ajouter une capacité de stockage"
+                >
+                  <img src={addButton} alt="Ajouter une capacité de stockage" />
+                </button>
+              </li>
+            </ul>
+          </fieldset>
+          <p>
+            <input type="submit" value="Ajouter cet appareil" />
+          </p>
+        </form>
+      )}
+    </>
   );
 }
 
