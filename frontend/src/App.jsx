@@ -6,6 +6,8 @@ import Home from "./pages/Home";
 import Phone from "./pages/Phone";
 import Database from "./pages/Database";
 
+import "./styles.scss";
+
 function App() {
   return (
     <div className="">
