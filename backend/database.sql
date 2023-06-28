@@ -78,11 +78,9 @@ CREATE TABLE
 CREATE TABLE
     `users` (
         `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+        `firstname` VARCHAR(50) NOT NULL,
         `email` VARCHAR(254) NOT NULL,
         `password` VARCHAR(254) NOT NULL,
-        `firstname` VARCHAR(254) NOT NULL,
-        `lastname` VARCHAR(254) NOT NULL,
-        `photo` VARCHAR(254) NOT NULL,
         `admin` tinyint NOT NULL,
         `statut` VARCHAR(254) NOT NULL
     );
@@ -102,3 +100,8 @@ INSERT INTO storage (name)
 VALUES ('16'), ('32'), ('64'), ('128'), ('256'), ('512'), ('1000');
 
 INSERT INTO network (name) VALUES ('3G'),('4G'),('5G');
+
+
+INSERT INTO users (firstname,email, password,admin,statut) VALUES ('toto','toto@toto.com','$argon2id$v=19$m=65536,t=3,p=4$mxxTymqbnIRjE2YIO/bRjA$wzdECEb3RNPWFo2NdVCvl+EjTraYJhuNMub8YiNBMhc',1,"admin");
+
+INSERT INTO users (firstname,email, password,admin,statut) VALUES ('tata','tata@toto.com','$argon2id$v=19$m=65536,t=3,p=4$mxxTymqbnIRjE2YIO/bRjA$wzdECEb3RNPWFo2NdVCvl+EjTraYJhuNMub8YiNBMhc',2,"salarié");
