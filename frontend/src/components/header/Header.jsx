@@ -11,6 +11,14 @@ export default function Header() {
           alt="logo_emmaus_connect.svg"
         />
       </Link>
+      <div className="Burger">
+        <input
+          type="checkbox"
+          role="button"
+          aria-label="Display the menu"
+          className="menu"
+        />
+      </div>
     </header>
   );
 }
