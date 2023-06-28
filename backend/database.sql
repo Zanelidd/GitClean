@@ -35,6 +35,7 @@ CREATE TABLE
         `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
         `brand_id` INT NOT NULL, 
         `model` VARCHAR(254) NOT NULL,
+        `screen_size` VARCHAR(254) NOT NULL,
         `network_id` int NOT NULL,
         `os_id` INT NOT NULL,
         FOREIGN KEY(`brand_id`) REFERENCES `brand`(id),
