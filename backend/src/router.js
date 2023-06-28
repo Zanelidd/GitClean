@@ -10,6 +10,7 @@ const storageControllers = require("./controllers/storageControllers");
 const productControllers = require("./controllers/productControllers");
 const productRamControllers = require("./controllers/productRamControllers");
 const productStorageControllers = require("./controllers/productStorageControllers");
+const authControllers = require("./controllers/authControllers");
 
 const validateProduct = require("./services/validateProduct");
 
@@ -26,5 +27,7 @@ router.post(
   productRamControllers.add,
   productStorageControllers.add
 );
+
+router.post("/users", authControllers.login);
 
 module.exports = router;
