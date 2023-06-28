@@ -5,6 +5,7 @@ import Admin from "./pages/Admin";
 import Home from "./pages/Home";
 import Phone from "./pages/Phone";
 import Database from "./pages/Database";
+import AddPhone from "./pages/AddPhone";
 
 import "./styles.scss";
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="/admin" element={<Admin />} />
           <Route path="/home" element={<Home />} />
           <Route path="/phone" element={<Phone />} />
+          <Route path="/phone/add" element={<AddPhone />} />
           <Route path="/database" element={<Database />} />
         </Routes>
       </Router>

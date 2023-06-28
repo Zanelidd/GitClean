@@ -88,6 +88,7 @@
     }
     .error {
         color: var(--error-colour);
+        margin-left: .5rem;
     }
     @media (min-width: 590px) {
         --grid-repetition: 2;
