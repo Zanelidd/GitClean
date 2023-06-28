@@ -6,12 +6,15 @@ import Home from "./pages/Home";
 import Phone from "./pages/Phone";
 import Database from "./pages/Database";
 
+import Header from "./components/header/Header";
+
 import "./styles.scss";
 
 function App() {
   return (
     <div className="">
       <Router>
+        <Header />
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/admin" element={<Admin />} />
