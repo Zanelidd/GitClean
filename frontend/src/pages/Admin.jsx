@@ -8,7 +8,7 @@ export default function Admin() {
     navigate(`/${arg}`);
   };
   return (
-    <div className="home-container">
+    <div className="admin-container">
       <div className="button-container">
         <button
           type="button"

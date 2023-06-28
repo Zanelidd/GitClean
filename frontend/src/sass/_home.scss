@@ -16,13 +16,14 @@
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap:1.5rem;
+    gap:1rem;
     @media screen and (min-width : 768px) {
         width: 60vw;
         justify-content: center;
     }
     @media screen and (min-width : 1024px) {
         width: 70vw;
+        gap:1.5rem;
     }
 
     button {
