@@ -12,7 +12,7 @@ export default function Login() {
   const navigate = useNavigate();
 
   function tempo() {
-    setTimeout(() => navigate("/home"), 500);
+    setTimeout(() => navigate("/home"), 1000);
   }
 
   function userLogin() {
