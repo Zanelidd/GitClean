@@ -1,19 +1,11 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import PropTypes from "prop-types";
 
-export default function ItemsList() {
-  const [itemsListData, setItemsListData] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/database`)
-      .then((response) => setItemsListData(response.data))
-      .catch((err) => console.error(err));
-  }, []);
+export default function ItemsList({ itemsListData }) {
   return (
     <>
       {itemsListData.map((item) => (
         <tr key={item.id}>
+          <td className="brand-column fix">{item.brand}</td>
           <td>{item.model}</td>
           <td>{item.screen_size}</td>
           <td>{item.network}</td>
@@ -25,3 +17,7 @@ export default function ItemsList() {
     </>
   );
 }
+
+ItemsList.propTypes = {
+  itemsListData: PropTypes.arrayOf(PropTypes.shape().isRequired).isRequired,
+};

@@ -30,55 +30,31 @@
     gap: 1rem;
     height: 60vh;
 
-    .table-left-container {
-      border: 1px solid green($color: #000000);
-      height: 100%;
 
-      .table-left {
-         width: 20vw;
-
-        thead {
-          border-bottom: 2px solid #00acb0;
-
-
-          .column-header {
-            background-color: #FFCC1B;
-            padding: 5px;
-          }
-
-        }
-        tr{
-          text-align: center;
-        }
-
-        tr:nth-child(odd) {
-          background-color: #fff;
-        }
-
-        tr:nth-child(even) {
-          background-color: rgb(196, 196, 196);
-        }
-      }
-    }
-
-    .table-right-container {
+    .table-products-container {
       height: 100%;
       max-width: 100%;
       flex-grow: 1;
+      overflow: auto;
 
-      .table-right {
-   
+      .table-products {
+        width: 100%;
 
-        th {
-          padding: 5px;
-        }
         .column-header {
+          position: sticky;
+          top: auto;
+          left: 0;
+          min-width: 11rem;
+          padding: 5px;
+          min-width: 11rem;
           border-bottom: 2px solid #00acb0;
           background-color: #FFCC1B;
+
         }
 
         td {
- text-align: center;
+          min-width: 11rem;
+          text-align: center;
         }
 
         tr:nth-child(odd) {
