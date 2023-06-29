@@ -13,29 +13,33 @@ import EstimatePhone from "./pages/EstimatePhone";
 import Page404 from "./pages/Page404";
 import FAQ from "./pages/FAQ";
 import SelectPhone from "./pages/SelectPhone";
+import EditUser from "./pages/EditUser";
 
 import "./styles.scss";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route element={<Layout />}>
-          <Route path="/database" element={<Database />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/phone" element={<Phones />} />
-          <Route path="/phone/add" element={<AddPhone />} />
-          <Route path="/phone/select" element={<SelectPhone />} />
-          <Route path="/estimate" element={<EstimatePhone />} />
-          <Route path="/database" element={<Database />} />
-          <Route path="/admin/user/add" element={<AddUser />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="*" element={<Page404 />} />
-        </Route>
-      </Routes>
-    </Router>
+    <div className="">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route element={<Layout />}>
+            <Route path="/database" element={<Database />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/phone" element={<Phones />} />
+            <Route path="/phone/add" element={<AddPhone />} />
+            <Route path="/phone/select" element={<SelectPhone />} />
+            <Route path="estimate" element={<EstimatePhone />} />
+            <Route path="/database" element={<Database />} />
+            <Route path="/admin/user/add" element={<AddUser />} />
+            <Route path="/admin/user/edit" element={<EditUser />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="*" element={<Page404 />} />
+          </Route>
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
