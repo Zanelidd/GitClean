@@ -1,18 +1,18 @@
-body{
+body {
   background-image: url("assets/Rectangle.png");
-background-repeat: no-repeat;
-background-position-x: -25vw;
-background-position-y: 70vh;
+  background-repeat: no-repeat;
+  background-position-x: -25vw;
+  background-position-y: 70vh;
 
-@media screen and (min-width :768px) {
-  background-position-x: -15vw;
-}
-@media screen and (min-width : 1024px) {
-  background-position-x: -10vw;
-}
-@media screen and (min-width : 1480px) {
-  background-position-x: -8vw;
-}
+  @media screen and (min-width: 768px) {
+    background-position-x: -15vw;
+  }
+  @media screen and (min-width: 1024px) {
+    background-position-x: -10vw;
+  }
+  @media screen and (min-width: 1480px) {
+    background-position-x: -8vw;
+  }
 }
 .home-container {
   height: 90vh;
@@ -32,14 +32,14 @@ background-position-y: 70vh;
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap:1rem;
-    @media screen and (min-width : 768px) {
-        width: 60vw;
-        justify-content: center;
+    gap: 1rem;
+    @media screen and (min-width: 768px) {
+      width: 60vw;
+      justify-content: center;
     }
-    @media screen and (min-width : 1024px) {
-        width: 70vw;
-        gap:1.5rem;
+    @media screen and (min-width: 1024px) {
+      width: 70vw;
+      gap: 1.5rem;
     }
 
     button {
