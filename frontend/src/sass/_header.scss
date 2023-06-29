@@ -114,7 +114,7 @@
 
       :hover {
         text-decoration: underline;
-        color: red;
+        color: #ffcc1b;
       }
 
       :active {
@@ -155,14 +155,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: green;
+  color: #002743;
   text-decoration: underline;
   text-decoration-color: transparent;
   transition: 350ms ease-out;
-
-  :hover {
-    color: red;
-  }
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
 .active {
@@ -188,7 +186,7 @@
     display: none;
   }
 
-  .login-menu{
+  .login-menu {
     display: none;
   }
 }
