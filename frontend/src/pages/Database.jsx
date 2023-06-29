@@ -34,6 +34,9 @@ export default function Database() {
           </table>
         </div>
       </div>
+      <div className="button-container">
+        <button type="button">Export fichier .CSV</button>
+      </div>
     </div>
   );
 }
