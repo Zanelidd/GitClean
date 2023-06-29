@@ -82,10 +82,15 @@
             background: var(--background-primary-colour);
             padding: .6rem 2.2rem;
             border: none;
-        }
-        &[type="reset"] {
-            padding: .5rem 2.1rem;
-        }
+            &:hover {
+                background-color: white;
+                border: 1px solid var(--background-primary-colour);
+                color: var(--background-primary-colour);
+            }
+            &:active {
+                transform:scale(1.1);
+            }
+        } 
     }
     select {
         background: transparent;

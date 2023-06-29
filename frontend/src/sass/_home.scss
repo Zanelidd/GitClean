@@ -1,15 +1,3 @@
-body {
-  .background-logo {
-    height: 25rem;
-    width: 35rem;
-    position: absolute;
-    bottom : -3rem;
-    left : -16rem;
-    background-image: url("assets/Rectangle.png");
-    background-repeat: no-repeat;
-    
-  }
-}
 .home-container {
   height: 90vh;
   width: 100vw;
@@ -51,6 +39,9 @@ body {
       justify-content: space-around;
       align-items: center;
       font-family: var(--font);
+      &:hover {
+        transform: scale(1.5);
+      }
     }
     .button-new {
       background: #00acb0;
