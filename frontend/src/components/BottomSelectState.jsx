@@ -1,19 +1,19 @@
-export default function BottomSelectState() {
-  const states = [
-    "Reconditionné",
-    "Reconditionnable",
-    "Bloqué",
-    "Réparable",
-    "DEEE",
-  ];
+import PropTypes from "prop-types";
+
+export default function BottomSelectState({ state, setSelectedState }) {
   return (
     <div className="state-container">
       <p className="title">Quel est l'état du téléphone ? </p>
       <div className="state-button-container">
-        {states.map((state) => {
+        {state.map((stat) => {
           return (
-            <button type="button" className="button-state">
-              {state.name}
+            <button
+              type="button"
+              key={stat.id}
+              className="button-state"
+              onClick={() => setSelectedState(stat.name)}
+            >
+              {stat.name}
             </button>
           );
         })}
@@ -21,3 +21,8 @@ export default function BottomSelectState() {
     </div>
   );
 }
+
+BottomSelectState.propTypes = {
+  state: PropTypes.arrayOf.isRequired,
+  setSelectedState: PropTypes.arrayOf.isRequired,
+};

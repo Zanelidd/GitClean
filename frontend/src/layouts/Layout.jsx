@@ -4,6 +4,7 @@ import Header from "../components/header/Header";
 function Layout() {
   return (
     <>
+      <div className="background-logo" />
       <Header />
       <Outlet />
     </>

@@ -8,7 +8,6 @@
   @media screen and (min-width: 768px) {
     justify-content: space-around;
   }
-  
 
   .caract-container {
     height: 40vh;
@@ -110,22 +109,23 @@
         background-color: #00acb0;
         color: white;
         &:hover {
+          border: 1px solid #00acb0;
           background-color: white;
           color: #00acb0;
         }
       }
     }
   }
-  .state-container{
+  .state-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 
-    .title{
+    .title {
       text-align: center;
     }
-    
+
     .state-button-container {
       height: 30vh;
       width: 90vw;
@@ -142,10 +142,16 @@
       }
       .button-state {
         width: 15rem;
-        height: 3rem;
-        border-radius: 0.3125rem;
+        height: 4rem;
+        border-radius: 5px;
         background: #00acb0;
+        color: white;
+        font-family: var(--font);
+        font-size: 1.3rem;
+        font-weight: 600;
+
         &:hover {
+          border: 1px solid #00acb0;
           background-color: white;
           color: #00acb0;
         }
