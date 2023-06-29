@@ -31,7 +31,7 @@
     height: 60vh;
 
     .table-products-container {
-      height: 90%;
+      max-height: 90%;
       max-width: 100%;
       flex-grow: 1;
       overflow: auto;
