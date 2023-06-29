@@ -33,7 +33,7 @@ export default function SelectPhone() {
   const [networks, setNetworks] = useState();
   const [rams, setRams] = useState();
   const [storages, setStorages] = useState();
-  const { selected, setSelected } = useContext(ProductContext);
+  const { setSelected } = useContext(ProductContext);
 
   const screens = ["3.5'", "4'", "5'", "6'", "7'", "8'", "9'"];
   const models = ["iphone 10", "Galaxy 12", "iphone 14", " Galaxy 20"];
@@ -259,7 +259,9 @@ export default function SelectPhone() {
         className="button-find"
         onClick={() => {
           postInfos(state);
-          HandleClickNavigate();
+          setTimeout(() => {
+            HandleClickNavigate();
+          }, 1000);
         }}
       >
         Trouver l'appareil

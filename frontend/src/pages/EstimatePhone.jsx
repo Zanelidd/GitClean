@@ -5,16 +5,11 @@ import BottomSelectState from "../components/BottomSelectState";
 import ProductContext from "../contexts/ProductContext";
 
 export default function EstimatePhone() {
-  const [infos, setInfos] = useState([]);
   const [state, setState] = useState([]);
   const { selected } = useContext(ProductContext);
   const [selectedState, setSelectedState] = useState([]);
 
   console.info("selected : ", selected);
-
-  useEffect(() => {
-    setInfos(selected);
-  }, []);
 
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_BACKEND_URL}/state`).then((response) => {
@@ -25,7 +20,7 @@ export default function EstimatePhone() {
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
-      {selected.brandname.length && (
+      {selected.brandname?.length && (
         <div className="estimate-container">
           <div className="caract-container">
             <img src="/src/assets/phone_14_01.jpg" alt="" />
