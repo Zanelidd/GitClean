@@ -1,8 +1,25 @@
 import { Link } from "react-router-dom";
-// import BurgerButton from "./BurgerButton";
+import { useEffect, useRef, useState } from "react";
 import imageLogo from "../../assets/emmausconnectlogo.svg";
+// import BurgerButton from "./BurgerButton";
 
 export default function Header() {
+  const menuRef = useRef();
+
+  const [showLoginMenu, setShowLoginMenu] = useState(false);
+
+  const handleShowLoginMenu = () => {
+    setShowLoginMenu(!showLoginMenu);
+  };
+
+  useEffect(() => {
+    const handler = (e) => {
+      if (!menuRef.current.contains(e.target)) {
+        setShowLoginMenu(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+  }, []);
   return (
     <header className="header">
       <div className="img-logo-container">
@@ -54,7 +71,7 @@ export default function Header() {
                 <line x1="19" y1="5" x2="5" y2="19" />
                 <circle cx="6.5" cy="6.5" r="2.5" />
                 <circle cx="17.5" cy="17.5" r="2.5" />
-              </svg>{" "}
+              </svg>
               <div className="text-li">Estimer </div>
             </Link>
           </li>
@@ -99,7 +116,7 @@ export default function Header() {
                 <line x1="3" y1="6" x2="3.01" y2="6" />
                 <line x1="3" y1="12" x2="3.01" y2="12" />
                 <line x1="3" y1="18" x2="3.01" y2="18" />
-              </svg>{" "}
+              </svg>
               <div className="text-li">Appareils </div>
             </Link>
           </li>
@@ -121,7 +138,7 @@ export default function Header() {
                 <circle cx="9" cy="7" r="4" />
                 <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
                 <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-              </svg>{" "}
+              </svg>
               <div className="text-li">Utilisateurs </div>
             </Link>
           </li>
@@ -142,13 +159,55 @@ export default function Header() {
                 <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
                 <polyline points="16 17 21 12 16 7" />
                 <line x1="21" y1="12" x2="9" y2="12" />
-              </svg>{" "}
+              </svg>
               <div className="text-li">Déconnexion </div>
             </Link>
           </li>
         </ul>
-        <div className="burger-container" />
       </nav>
+      <div
+        ref={menuRef}
+        className="login-button"
+        role="button"
+        tabIndex="0"
+        onKeyDown={() => {}}
+        onClick={() => handleShowLoginMenu()}
+      >
+        <div className="burger-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="44"
+            height="44"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="feather feather-menu"
+          >
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </div>
+      </div>
+      <div className={showLoginMenu ? "login-menu" : "login-menu-hidden"}>
+        <ul className="login-menu-app">
+          <li>
+            <div className="notification-icon-title">Notifications</div>
+          </li>
+          <li>
+            <div className="li-text">Mes décisions</div>
+          </li>
+          <li>
+            <div className="li-text">Notifications</div>
+          </li>
+          <li>
+            <div className="li-text">Administration</div>
+          </li>
+        </ul>
+      </div>
     </header>
   );
 }
