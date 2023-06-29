@@ -29,7 +29,7 @@ export default function Home() {
         <button
           type="button"
           className="button-estimate"
-          onClick={() => handleClick("phone/estimate")}
+          onClick={() => handleClick("phone/select")}
         >
           <img src="./src/assets/percent.svg" alt="icone pourcentage" />
           <p>Estimer appareil</p>
