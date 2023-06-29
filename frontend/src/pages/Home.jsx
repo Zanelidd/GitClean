@@ -54,7 +54,11 @@ export default function Home() {
             </button>
           </>
         )}
-        <button type="button" className="button-out">
+        <button
+          type="button"
+          className="button-out"
+          onClick={() => handleClick("")}
+        >
           <img src="./src/assets/log-out.svg" alt="icone sortie" />
           <p>Déconnexion</p>
         </button>
