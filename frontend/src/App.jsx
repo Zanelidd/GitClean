@@ -8,9 +8,9 @@ import Phones from "./pages/Phones";
 import AddPhone from "./pages/AddPhone";
 import EstimatePhone from "./pages/EstimatePhone";
 import Page404 from "./pages/Page404";
-
 import FAQ from "./pages/FAQ";
 import Layout from "./layouts/Layout";
+import SelectPhone from "./pages/SelectPhone";
 
 import "./styles.scss";
 
@@ -26,7 +26,9 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/phone" element={<Phones />} />
             <Route path="/phone/add" element={<AddPhone />} />
-            <Route path="/phone/estimate" element={<EstimatePhone />} />
+            <Route path="/phone/select" element={<SelectPhone />}>
+              <Route path="estimate" element={<EstimatePhone />} />
+            </Route>
             <Route path="/database" element={<Database />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="*" element={<Page404 />} />
