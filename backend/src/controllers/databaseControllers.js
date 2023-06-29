@@ -2,7 +2,7 @@ const models = require("../models");
 
 const browsePhones = (req, res) => {
   models.database
-    .findAll()
+    .findAllWithAllColumns()
     .then(([rows]) => res.send(rows))
     .catch((err) => {
       console.error(err);
