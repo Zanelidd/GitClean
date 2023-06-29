@@ -1,4 +1,5 @@
-import ProgressCircle from "../components/ProgressCircle";
+// import BottomPriceContainer from "../components/BottomPriceContainer";
+import BottomSelectState from "../components/BottomSelectState";
 
 export default function EstimatePhone() {
   return (
@@ -17,18 +18,8 @@ export default function EstimatePhone() {
           </div>
         </div>
       </div>
-      <div className="bottom-container">
-        <div className="categorie-container">
-          <ProgressCircle />
-        </div>
-        <div className="price-container">
-          <p className="price-title">Prix conseillé :</p>
-          <p className="price">75€</p>
-          <button type="button" className="button-new-estimate">
-            Estimer un nouvel appareil
-          </button>
-        </div>
-      </div>
+      {/* <BottomPriceContainer /> */}
+      <BottomSelectState />
     </div>
   );
 }
