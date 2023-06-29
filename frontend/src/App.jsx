@@ -12,6 +12,7 @@ import Page404 from "./pages/Page404";
 import FAQ from "./pages/FAQ";
 import Layout from "./layouts/Layout";
 import SelectPhone from "./pages/SelectPhone";
+import EditUser from "./pages/EditUser";
 
 import "./styles.scss";
 
@@ -31,6 +32,7 @@ function App() {
             <Route path="estimate" element={<EstimatePhone />} />
             <Route path="/database" element={<Database />} />
             <Route path="/admin/user/add" element={<AddUser />} />
+            <Route path="/admin/user/edit" element={<EditUser />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="*" element={<Page404 />} />
           </Route>
