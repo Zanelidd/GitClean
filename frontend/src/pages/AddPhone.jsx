@@ -1,10 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+import ModalAddExtra from "../components/ModalAddExtra";
+
+import CurrentModalContext from "../contexts/ModalContext";
+
 import addButton from "../assets/add.svg";
 
-function AddPhone() {
+export default function AddPhone() {
+  const { modal, setModal } = useContext(CurrentModalContext);
   const [oss, setOss] = useState([]);
   const [brands, setBrands] = useState([]);
   const [networks, setNetworks] = useState([]);
@@ -13,6 +18,11 @@ function AddPhone() {
   const [invalidFields, setInvalidFields] = useState(new Set());
   const [isAdded, setIsAdded] = useState(false);
   const [invalidProductAddition, setInvalidProductAddition] = useState("");
+  const [modalOs, setModalOs] = useState("");
+  const [modalBrand, setModalBrand] = useState("");
+  const [modalRam, setModalRam] = useState("");
+  const [modalStorage, setModalStorage] = useState("");
+  const isModalOpen = Object.keys(modal).length;
   const host = import.meta.env.VITE_BACKEND_URL;
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -51,29 +61,44 @@ function AddPhone() {
         .catch((err) => setInvalidProductAddition(err.response.data.error));
     }
   };
+  const openModal = (e) => {
+    let { target } = e;
+    while (target.nodeName !== "BUTTON") {
+      target = target.parentNode;
+    }
+    setModal({ extra: target.dataset.extra });
+  };
 
   useEffect(() => {
     axios
-      .get(`${host}/os`)
+      .get(`${host}/oss`)
       .then((response) => setOss(response.data))
       .catch((err) => console.error(err));
+  }, [modalOs]);
+  useEffect(() => {
     axios
       .get(`${host}/brands`)
       .then((response) => setBrands(response.data))
       .catch((err) => console.error(err));
+  }, [modalBrand]);
+  useEffect(() => {
     axios
       .get(`${host}/networks`)
       .then((response) => setNetworks(response.data))
       .catch((err) => console.error(err));
+  }, []);
+  useEffect(() => {
     axios
       .get(`${host}/rams`)
       .then((response) => setRams(response.data))
       .catch((err) => console.error(err));
+  }, [modalRam]);
+  useEffect(() => {
     axios
       .get(`${host}/storages`)
       .then((response) => setStorages(response.data))
       .catch((err) => console.error(err));
-  }, []);
+  }, [modalStorage]);
 
   return (
     <section className="add-phone">
@@ -112,6 +137,8 @@ function AddPhone() {
                 type="button"
                 className="add-extra"
                 title="Ajouter une version de système d’exploitation"
+                data-extra="os"
+                onClick={openModal}
               >
                 <img
                   src={addButton}
@@ -134,9 +161,11 @@ function AddPhone() {
               <button
                 type="button"
                 className="add-extra"
-                title="Ajouter une mémoire RAM"
+                title="Ajouter une marque"
+                data-extra="brand"
+                onClick={openModal}
               >
-                <img src={addButton} alt="Ajouter une mémoire RAM" />
+                <img src={addButton} alt="Ajouter une marque" />
               </button>
             </p>
             <p>
@@ -210,6 +239,8 @@ function AddPhone() {
                     type="button"
                     className="add-extra"
                     title="Ajouter une mémoire RAM"
+                    data-extra="ram"
+                    onClick={openModal}
                   >
                     <img src={addButton} alt="Ajouter une mémoire RAM" />
                   </button>
@@ -245,6 +276,8 @@ function AddPhone() {
                     type="button"
                     className="add-extra"
                     title="Ajouter une capacité de stockage"
+                    data-extra="storage"
+                    onClick={openModal}
                   >
                     <img
                       src={addButton}
@@ -258,10 +291,16 @@ function AddPhone() {
               <input type="submit" value="Ajouter cet appareil" />
             </p>
           </form>
+          {isModalOpen ? (
+            <ModalAddExtra
+              setModalOs={setModalOs}
+              setModalBrand={setModalBrand}
+              setModalRam={setModalRam}
+              setModalStorage={setModalStorage}
+            />
+          ) : null}
         </>
       )}
     </section>
   );
 }
-
-export default AddPhone;
