@@ -19,7 +19,18 @@ const readPhone = (req, res) => {
     });
 };
 
+const selectPhones = (req, res) => {
+  models.database
+    .selectPhonewithInfos(req.body)
+    .then(([rows]) => res.send(rows))
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 module.exports = {
   browsePhones,
   readPhone,
+  selectPhones,
 };
