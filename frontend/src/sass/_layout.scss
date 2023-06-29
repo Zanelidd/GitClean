@@ -3,3 +3,11 @@
 body {
     font-family: var(--font);
 }
+.layout {
+    background: url("/src/assets/c-logo.svg") no-repeat left bottom;
+    padding-bottom: 14rem;
+    @media (min-width: 800px) {
+        background-image: url("/src/assets/c-logo-desktop.svg");
+        padding-bottom: 38.5rem;
+    }
+}
