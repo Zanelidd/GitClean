@@ -30,7 +30,11 @@ export default function Home() {
           <img src="./src/assets/percent.svg" alt="icone pourcentage" />
           <p>Estimer appareil</p>
         </button>
-        <button type="button" className="button-faq">
+        <button
+          type="button"
+          className="button-faq"
+          onClick={() => handleClick("faq")}
+        >
           <img src="./src/assets/help-circle.svg" alt="icone faq" />
           <p>Foire aux questions</p>
         </button>
