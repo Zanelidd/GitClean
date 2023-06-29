@@ -82,5 +82,13 @@
     color: #fff;
     background-color: #00acb0;
     border-radius: 1rem;
-  }
+    &:hover {
+      background-color: white;
+      border: 1px solid var(--background-primary-color);
+      color: var(--background-primary-color);
+    }
+    &:active {
+      transform:scale(1.1);
+    }
+  } 
 }
