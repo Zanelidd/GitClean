@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import image404X4 from "../assets/404@4x.jpg";
 import image404X3 from "../assets/404@3x.jpg";
 import image404X2 from "../assets/404@2x.jpg";
@@ -27,6 +29,7 @@ export default function Page404() {
         Que vous cherchiez ou non à estimer ce que vaudrait un Nokia 3310 en
         2023, même reconditionné, la ressource que vous avez demandée n’a pas
         été trouvée.
+        <Link to="/">Retour</Link>
       </p>
     </section>
   );
