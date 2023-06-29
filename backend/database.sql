@@ -66,7 +66,8 @@ CREATE TABLE
 CREATE TABLE
     state (
         id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-        name VARCHAR(254) NOT NULL
+        name VARCHAR(254) NOT NULL,
+        weighting FLOAT NOT NULL
     );
 
 CREATE TABLE
@@ -97,8 +98,8 @@ VALUES ('HC', NULL, NULL), ('C', 90, 164.99), ('B', 165, 254.99), ('A', 255, 374
 
 -- state
 
-INSERT INTO state (name)
-VALUES ('DEEE'), ('Réparable'), ('Bloqué'), ('Reconditionnable'), ('Reconditionné');
+INSERT INTO state (name, weighting)
+VALUES ('DEEE', 0), ('Réparable', 0.5), ('Bloqué', 0.9), ('Reconditionnable', 0.95), ('Reconditionné', 1), ('Bon état', 1.05), ('Neuf', 1.1);
 
 -- os
 
