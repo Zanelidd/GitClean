@@ -1,6 +1,7 @@
 import axios from "axios";
-import { useEffect, useReducer, useState } from "react";
+import { useContext, useEffect, useReducer, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ProductContext from "../contexts/ProductContext";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -32,7 +33,7 @@ export default function SelectPhone() {
   const [networks, setNetworks] = useState();
   const [rams, setRams] = useState();
   const [storages, setStorages] = useState();
-  const [selected, setSelected] = useState();
+  const { selected, setSelected } = useContext(ProductContext);
 
   const screens = ["3.5'", "4'", "5'", "6'", "7'", "8'", "9'"];
   const models = ["iphone 10", "Galaxy 12", "iphone 14", " Galaxy 20"];
@@ -75,15 +76,13 @@ export default function SelectPhone() {
     axios
       .post(`${import.meta.env.VITE_BACKEND_URL}/database`, props)
       .then((response) => {
+        console.info(response.data[0]);
         setSelected(response.data[0]);
       });
   }
 
-  function HandleClickNavigate(props) {
-    postInfos(state);
-    setTimeout(() => {
-      navigate("/phone/select/estimate", { state: props });
-    }, 500);
+  function HandleClickNavigate() {
+    navigate("/phone/select/estimate");
   }
 
   return (
@@ -259,7 +258,8 @@ export default function SelectPhone() {
         type="button"
         className="button-find"
         onClick={() => {
-          HandleClickNavigate(selected);
+          postInfos(state);
+          HandleClickNavigate();
         }}
       >
         Trouver l'appareil
