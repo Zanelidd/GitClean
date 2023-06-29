@@ -6,7 +6,9 @@ import Home from "./pages/Home";
 import Phone from "./pages/Phone";
 import Database from "./pages/Database";
 import AddPhone from "./pages/AddPhone";
+
 import Layout from "./layouts/Layout";
+
 import "./styles.scss";
 
 function App() {
