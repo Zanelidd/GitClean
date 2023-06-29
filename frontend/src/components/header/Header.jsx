@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import imageLogo from "../../assets/emmausconnectlogo.svg";
-// import BurgerButton from "./BurgerButton";
 
 export default function Header() {
   const menuRef = useRef();
