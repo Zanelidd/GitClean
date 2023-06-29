@@ -74,7 +74,13 @@
         &:active {
           transform:scale(1.1);
       }
+      @media screen and (min-width: 1024px) {
+        margin-top: 5%;
+        width: 16rem;
+        height:4rem;
+        font-size: 2rem;
       }
+    }
 
       .input-container {
         height: 65%;
