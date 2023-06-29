@@ -37,9 +37,10 @@ export default function Database() {
             <thead>
               <tr>
                 <th className="column-header">Modèle</th>
-                <th className="column-header">OS</th>
                 <th className="column-header">Écran</th>
-                <th className="column-header">Ram</th>
+                <th className="column-header">Réseau</th>
+                <th className="column-header">Sys. d'exploitation</th>
+                <th className="column-header">RAM</th>
                 <th className="column-header">Stockage</th>
               </tr>
             </thead>
