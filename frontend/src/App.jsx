@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import Layout from "./layouts/Layout";
+
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import Home from "./pages/Home";
@@ -10,7 +12,6 @@ import AddUser from "./pages/AddUser";
 import EstimatePhone from "./pages/EstimatePhone";
 import Page404 from "./pages/Page404";
 import FAQ from "./pages/FAQ";
-import Layout from "./layouts/Layout";
 import SelectPhone from "./pages/SelectPhone";
 import EditUser from "./pages/EditUser";
 
@@ -18,6 +19,7 @@ import "./styles.scss";
 
 function App() {
   return (
+
     <div className="">
       <Router>
         <Routes>
@@ -39,6 +41,7 @@ function App() {
         </Routes>
       </Router>
     </div>
+
   );
 }
 
