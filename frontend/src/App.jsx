@@ -19,7 +19,6 @@ import "./styles.scss";
 
 function App() {
   return (
-
     <div className="">
       <Router>
         <Routes>
@@ -41,7 +40,6 @@ function App() {
         </Routes>
       </Router>
     </div>
-
   );
 }
 
