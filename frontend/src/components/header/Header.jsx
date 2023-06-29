@@ -120,7 +120,7 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link to="/admin/user/add" className="link-style">
+            <Link to="/admin" className="link-style">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -298,7 +298,7 @@ export default function Header() {
             </li>
             <li>
               <Link
-                to="/phone/add"
+                to="/admin"
                 className="link-style"
                 onClick={() => handleShowLoginMenu()}
               >
