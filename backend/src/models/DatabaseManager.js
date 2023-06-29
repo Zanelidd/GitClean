@@ -5,10 +5,8 @@ class DatabaseManager extends AbstractManager {
     super({ table: "product" });
   }
 
-  findOneById(id) {
-    return this.database.query(`SELECT * FROM ${this.table} WHERE id = ?`, [
-      id,
-    ]);
+  findAllWithAllColumns() {
+    return this.database.query(`SELECT * FROM ${this.table}`);
   }
 }
 
