@@ -36,6 +36,9 @@
       justify-content: space-around;
       align-items: center;
       font-family: var(--font);
+      &:hover {
+        transform: scale(1.5);
+      }
     }
     .button-add {
       background: #00acb0;
