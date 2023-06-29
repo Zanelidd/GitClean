@@ -159,9 +159,8 @@
   text-decoration: underline;
   text-decoration-color: transparent;
   transition: 350ms ease-out;
-font-size: 1.2rem;
-font-weight: 700;
-
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
 .active {
@@ -187,7 +186,7 @@ font-weight: 700;
     display: none;
   }
 
-  .login-menu{
+  .login-menu {
     display: none;
   }
 }
