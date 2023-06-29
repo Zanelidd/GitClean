@@ -13,7 +13,7 @@ export default function Admin() {
         <button
           type="button"
           className="button-add"
-          onClick={() => handleClick("phone/add")}
+          onClick={() => handleClick("admin/user/add")}
         >
           <img
             src="./src/assets/user-plus.svg"
