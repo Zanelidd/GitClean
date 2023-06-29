@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Phone from "./pages/Phone";
 import Database from "./pages/Database";
 import AddPhone from "./pages/AddPhone";
+import FAQ from "./pages/FAQ";
 import Layout from "./layouts/Layout";
 import "./styles.scss";
 
@@ -21,6 +22,7 @@ function App() {
             <Route path="/phone" element={<Phone />} />
             <Route path="/phone/add" element={<AddPhone />} />
             <Route path="/database" element={<Database />} />
+            <Route path="/faq" element={<FAQ />} />
           </Route>
         </Routes>
       </Router>
