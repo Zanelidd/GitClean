@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import Layout from "./layouts/Layout";
+
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import Home from "./pages/Home";
@@ -10,7 +12,6 @@ import AddUser from "./pages/AddUser";
 import EstimatePhone from "./pages/EstimatePhone";
 import Page404 from "./pages/Page404";
 import FAQ from "./pages/FAQ";
-import Layout from "./layouts/Layout";
 import SelectPhone from "./pages/SelectPhone";
 
 import "./styles.scss";
@@ -28,7 +29,7 @@ function App() {
             <Route path="/phone" element={<Phones />} />
             <Route path="/phone/add" element={<AddPhone />} />
             <Route path="/phone/select" element={<SelectPhone />} />
-            <Route path="estimate" element={<EstimatePhone />} />
+            <Route path="/estimate" element={<EstimatePhone />} />
             <Route path="/database" element={<Database />} />
             <Route path="/admin/user/add" element={<AddUser />} />
             <Route path="/faq" element={<FAQ />} />
