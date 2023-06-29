@@ -1,86 +1,141 @@
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 10vh;
+  background-color: rgba(0, 172, 176, 1);
+
+  .img-logo-container {
+    max-width: 100%;
+    min-height: 4rem;
+
+    .img-logo {
+      max-height: 10vh;
+    }
+  }
+}
+
+
+.navBar-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .navBar-list {
     display: flex;
-    background-color: rgba(0, 172, 176, 1) ;
-   min-height: 7.82vh; 
-    padding-right: 10px;
-    width: 100vw;
-justify-content: space-between;
-align-items: center;
-    img.imgLogoHeader {
-        display: flex;
-        width: 30%;
-        height: 100%;
-      }
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    gap: 10px;
+    margin-right: 20px;
+
+    .link-style {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-size: 16px;
+    }
+
+    :hover {
+      text-decoration: underline;
+      color: red;
+    }
+  }
+}
+
+
+.login-menu {
+  position: absolute;
+  top: 7vh;
+  right: 4vw;
+  min-width: 150px;
+  padding: 0 20px 15px 20px;
+  background-color: green;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.13);
+  z-index: 8888;
+  animation: openLoginMenu 350ms 1 ease-in-out;
+
+  > :first-child {
+    &> :last-child {
+      padding-bottom: 15px;
+    }
   }
 
-  .menu {
-    --s: 30px; 
-    --c: rgb(244, 93, 93); 
-    
-    
-    width: 50px;
-    height: 20px;
-    border: none;
-    padding: 0;
-    border-inline: calc(var(--s)/2) solid #0000; 
-    box-sizing: content-box;
-    --_g1: linear-gradient(var(--c) 20%,#0000 0 80%,var(--c) 0) 
-           no-repeat content-box border-box;
-    --_g2: radial-gradient(circle closest-side at 50% 12.5%,var(--c) 95%,#0000) 
-           repeat-y content-box border-box;
-    background: 
-      var(--_g2) left  var(--_p,0px) top,
-      var(--_g1) left  calc(var(--s)/10 + var(--_p,0px)) top,
-      var(--_g2) right var(--_p,0px) top,
-      var(--_g1) right calc(var(--s)/10 + var(--_p,0px)) top;
-    background-size: 
-      20% 80%,
-      40% 100%;
-    position: relative;
-    clip-path: inset(0 25%);
-    -webkit-mask: linear-gradient(90deg,#0000,#000 25% 75%,#0000);
-    cursor: pointer;
-    mask: linear-gradient(90deg,#0000,#000 25% 75%,#0000);
-    cursor: pointer;
-    transition: 
-      background-position .3s var(--_s,.3s), 
-      clip-path 0s var(--_s,.6s);
-    -webkit-appearance:none;
-    -moz-appearance:none;
-    appearance:none;
-  }
-  .menu:before,
-  .menu:after {
-    content:"";
+  &:before {
+    content: " ";
+    height: 0;
+    pointer-events: none;
     position: absolute;
-    border-radius: var(--s);
-    inset: 40% 0;
-    background: var(--c);
-    transition: transform .3s calc(.3s - var(--_s,.3s));
-  }
-  
-  .menu:checked {
-    clip-path: inset(0);
-    --_p: calc(-1*var(--s));
-    --_s: 0s;
-  }
-  .menu:checked:before {
-    transform: rotate(45deg);
-  }
-  .menu:checked:after {
-    transform: rotate(-45deg);
-  }
-  .menu:focus-visible {
-    clip-path: none;
-    -webkit-mask: none;
-    mask: none;
-    border: none;
-    outline: 2px solid var(--c);
-    outline-offset: 5px;
+    width: 0;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -8px;
+    border: 8px solid transparent;
+    border-bottom-color: #ffffff;
   }
 
-  
-  
+  .login-menu-app {
+    list-style-type: none;
+    padding: 10px 0 0 0;
+    margin: 0;
+    border-bottom: 1px solid blue;
 
- 
-  
+    & li {
+      display: flex;
+      justify-content: flex-start;
+      align-items: start;
+      margin-bottom: 5px;
+
+      :hover {
+        text-decoration: underline;
+        color: red;
+      }
+
+      :active {
+        color: green;
+      }
+
+      svg {
+        padding-top: 10px;
+        cursor: pointer;
+      }
+
+      .li-text {
+        padding-left: 10px;
+      }
+    }
+  }
+
+  .login-menu-user {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    > :first-child {
+      padding-top: 10px;
+    }
+
+    li {
+      display: flex;
+      justify-content: flex-start;
+      align-items: start;
+      padding-top: 5px;
+    }
+
+    :hover {
+      text-decoration: underline;
+      color: red;
+    }
+
+    :active {
+      color: blue;
+    }
+  }
+
+  .li-text {
+    padding-top: 10px;
+  }
+}
