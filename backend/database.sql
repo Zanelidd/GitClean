@@ -9,13 +9,15 @@ CREATE TABLE
 CREATE TABLE
     ram (
         id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-        name VARCHAR(254) NOT NULL
+        name VARCHAR(254) NOT NULL,
+        valM INT NOT NULL
     );
 
 CREATE TABLE
     storage (
         id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-        name VARCHAR(254) NOT NULL
+        name VARCHAR(254) NOT NULL,
+        valS INT NOT NULL
     );
 
 CREATE TABLE
@@ -105,13 +107,12 @@ VALUES ('Android 8'), ('Android 8.1'), ('Android 9'), ('Android 10'), ('Android 
 
 -- ram
 
-INSERT INTO ram (name)
-VALUES ('1 Go'), ('2 Go'), ('3 Go'), ('4 Go'), ('6 Go'), ('8 Go'), ('12 Go'), ('16 Go');
+INSERT INTO ram (name,valM) VALUES ('1 Go',30), ('2 Go',40), ('3 Go',54), ('4 Go',60), ('6 Go',70), ('8 Go',80), ('12 Go',90), ('16 Go',100);
 
 -- storage
 
-INSERT INTO storage (name)
-VALUES ('16 Go'), ('32 Go'), ('64 Go'), ('128 Go'), ('256 Go'), ('512 Go'), ('1 To');
+
+INSERT INTO storage (name,valS) VALUES ('16 Go',30), ('32 Go',45), ('64 Go',65), ('128 Go',75), ('256 Go',85), ('512 Go',95), ('1 To',120);
 
 -- network
 

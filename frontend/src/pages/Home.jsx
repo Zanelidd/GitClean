@@ -13,7 +13,6 @@ export default function Home() {
   const handleClick = (arg) => {
     navigate(`/${arg}`);
   };
-
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
@@ -33,7 +32,7 @@ export default function Home() {
             <button
               type="button"
               className="button-estimate"
-              onClick={() => handleClick("phone/estimate")}
+              onClick={() => handleClick("phone/select")}
             >
               <img src="./src/assets/percent.svg" alt="icone pourcentage" />
               <p>Estimer appareil</p>
