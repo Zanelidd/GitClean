@@ -1,5 +1,5 @@
-// import BottomPriceContainer from "../components/BottomPriceContainer";
-import BottomSelectState from "../components/BottomSelectState";
+import BottomPriceContainer from "../components/BottomPriceContainer";
+// import BottomSelectState from "../components/BottomSelectState";
 
 export default function EstimatePhone() {
   return (
@@ -18,8 +18,8 @@ export default function EstimatePhone() {
           </div>
         </div>
       </div>
-      {/* <BottomPriceContainer /> */}
-      <BottomSelectState />
+      <BottomPriceContainer />
+      {/* <BottomSelectState /> */}
     </div>
   );
 }

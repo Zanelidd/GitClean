@@ -72,9 +72,16 @@
       height: 25vh;
       width: 50%;
       .css-ol7wxs-MuiTypography-root {
+        height: 17rem;
+        width: 17rem;
+        border-radius: 17rem;
         font-size: 3rem;
         background-color: #253d8b;
         color: white;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
     .price-container {
