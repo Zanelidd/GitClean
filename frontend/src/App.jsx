@@ -16,12 +16,12 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/database" element={<Database />} />
           <Route element={<Layout />}>
             <Route path="/admin" element={<Admin />} />
             <Route path="/home" element={<Home />} />
             <Route path="/phone" element={<Phones />} />
             <Route path="/phone/add" element={<AddPhone />} />
-            <Route path="/database" element={<Database />} />
           </Route>
         </Routes>
       </Router>

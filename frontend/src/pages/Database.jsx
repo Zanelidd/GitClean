@@ -1,3 +1,5 @@
+import ItemsList from "../components/ItemsList";
+
 export default function Database() {
   return (
     <div className="database-container">
@@ -36,22 +38,13 @@ export default function Database() {
               <tr>
                 <th className="column-header">Modèle</th>
                 <th className="column-header">OS</th>
-                <th className="column-header">Taille</th>
                 <th className="column-header">Écran</th>
                 <th className="column-header">Ram</th>
                 <th className="column-header">Stockage</th>
-                <th className="column-header">État</th>
               </tr>
             </thead>
-
             <tbody>
-              <tr>
-                <td>10</td>
-                <td>IOS</td>
-                <td>6</td>
-                <td>4</td>
-                <td>128</td>
-              </tr>
+              <ItemsList />
             </tbody>
           </table>
         </div>
