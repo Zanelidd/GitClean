@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Database from "./pages/Database";
 import Phones from "./pages/Phones";
 import AddPhone from "./pages/AddPhone";
+import AddUser from "./pages/AddUser";
 import EstimatePhone from "./pages/EstimatePhone";
 import Page404 from "./pages/Page404";
 import FAQ from "./pages/FAQ";
@@ -26,10 +27,10 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/phone" element={<Phones />} />
             <Route path="/phone/add" element={<AddPhone />} />
-            <Route path="/phone/select" element={<SelectPhone />}>
-              <Route path="estimate" element={<EstimatePhone />} />
-            </Route>
+            <Route path="/phone/select" element={<SelectPhone />} />
+            <Route path="estimate" element={<EstimatePhone />} />
             <Route path="/database" element={<Database />} />
+            <Route path="/admin/user/add" element={<AddUser />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="*" element={<Page404 />} />
           </Route>
