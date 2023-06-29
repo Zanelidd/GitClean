@@ -27,32 +27,58 @@
     align-items: center;
     list-style: none;
     gap: 10px;
-    margin-right: 20px;
+    margin-right: 15px;
 
-    .link-style {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      font-size: 16px;
-    }
+    li {
+      cursor: pointer;
+      margin: 0 1.5rem;
 
-    :hover {
-      text-decoration: underline;
-      color: red;
+      .link-style {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 6rem;
+        color: #002743;
+        text-decoration: none;
+
+        .text-li {
+          font-size: 1.1rem;
+          font-weight: 600;
+        }
+      }
+
+      :hover {
+        text-decoration: underline;
+        color: #ffffff;
+      }
     }
   }
 }
 
+.login-button {
+  margin-right: 15px;
+  gap: 0.5rem;
+
+  border-radius: 20px;
+  cursor: pointer;
+  transition: border 100ms ease-in-out;
+
+  &.login-button:hover {
+    scale: 1.1;
+  }
+}
+
+
 .login-menu {
   position: absolute;
-  top: 7vh;
+  top: 10.5vh;
   right: 4vw;
   min-width: 150px;
   padding: 0 20px 15px 20px;
-  background-color: green;
+  background-color: #ffffff;
   border-radius: 15px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.13);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   z-index: 8888;
   animation: openLoginMenu 350ms 1 ease-in-out;
 
@@ -79,7 +105,6 @@
     list-style-type: none;
     padding: 10px 0 0 0;
     margin: 0;
-    border-bottom: 1px solid blue;
 
     & li {
       display: flex;
@@ -107,33 +132,63 @@
     }
   }
 
-  .login-menu-user {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-
-    > :first-child {
-      padding-top: 10px;
-    }
-
-    li {
-      display: flex;
-      justify-content: flex-start;
-      align-items: start;
-      padding-top: 5px;
-    }
-
-    :hover {
-      text-decoration: underline;
-      color: red;
-    }
-
-    :active {
-      color: blue;
-    }
-  }
-
   .li-text {
     padding-top: 10px;
+  }
+}
+
+@keyframes openLoginMenu {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.login-menu-hidden {
+  display: none;
+}
+
+.link-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: green;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: 350ms ease-out;
+
+  :hover {
+    color: red;
+  }
+}
+
+.active {
+  color: green;
+}
+
+.burger-icon {
+  svg {
+    line {
+      color: #002743;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navBar-icons {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .login-button {
+    display: none;
+  }
+
+  .login-menu{
+    display: none;
   }
 }
