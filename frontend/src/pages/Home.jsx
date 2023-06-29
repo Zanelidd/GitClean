@@ -50,7 +50,7 @@ export default function Home() {
               onClick={() => handleClick("database")}
             >
               <img src="./src/assets/list.svg" alt="icone liste" />
-              <p>Tous les appareil</p>
+              <p>Tous les appareils</p>
             </button>
             <button
               type="button"
