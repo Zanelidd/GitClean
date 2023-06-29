@@ -1,21 +1,17 @@
 body{
   background-image: url("assets/Rectangle.png");
 background-repeat: no-repeat;
-background-attachment:fixed ;
 background-position-x: -25vw;
-background-position-y: 72vh;
+background-position-y: 70vh;
 
 @media screen and (min-width :768px) {
-  background-position-x: -20vw;
-  background-position-y: 75vh;
+  background-position-x: -15vw;
 }
 @media screen and (min-width : 1024px) {
-  background-position-x: -15vw;
-  background-position-y: 75vh;
+  background-position-x: -10vw;
 }
 @media screen and (min-width : 1480px) {
-  background-position-x: -10vw;
-  background-position-y: 74vh;
+  background-position-x: -8vw;
 }
 }
 .home-container {
