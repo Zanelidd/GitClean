@@ -4,10 +4,11 @@ import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import Home from "./pages/Home";
 import Database from "./pages/Database";
+import Phones from "./pages/Phones";
 import AddPhone from "./pages/AddPhone";
 import EstimatePhone from "./pages/EstimatePhone";
+
 import Layout from "./layouts/Layout";
-import Phones from "./pages/Phones";
 
 import "./styles.scss";
 

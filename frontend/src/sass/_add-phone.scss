@@ -7,11 +7,14 @@
     --error-colour: #e6354c;
     font-size: 1.2rem;
     margin: 3.3rem 5rem;
-    h1 {
+    h1,
+    h2 {
         font-size: 1.8rem;
         color: var(--primary-colour);
         padding-bottom: 1rem;
         border-bottom: 1px solid var(--background-primary-colour);
+    }
+    h1 {
         + p {
             font-style: italic;
             text-align: center;
@@ -24,6 +27,9 @@
     p {
         display: flex;
         flex-direction: column;
+        &:last-of-type {
+            gap: 1rem;
+        }
     }
     fieldset {
         ul {
@@ -61,16 +67,24 @@
             padding: 0;
             box-shadow: none;
         }
-        &[type="submit"] {
+        &[type="submit"],
+        &[type="reset"] {
             font-weight: bold;
             font-size: 1.4rem;
             line-height: 0;
-            color: white;
-            background: var(--background-primary-colour);
+            color: var(--background-primary-colour);
+            background: transparent;
             align-self: center;
             max-width: max-content;
+        }
+        &[type="submit"] {
+            color: white;
+            background: var(--background-primary-colour);
             padding: .6rem 2.2rem;
             border: none;
+        }
+        &[type="reset"] {
+            padding: .5rem 2.1rem;
         }
     }
     select {
@@ -92,11 +106,39 @@
         color: var(--error-colour);
         margin-left: .5rem;
     }
+    .modal {
+        display: grid;
+        place-items: center;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        &::before {
+            background: rgb(0 0 0 / .75);
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            content: "";
+        }
+        form {
+            background: white;
+            width: 80vw;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 1;
+        }
+    }
     @media (min-width: 700px) {
         font-size: 2rem;
         max-width: 60rem;
         margin-inline: auto;
-        h1 {
+        h1,
+        h2 {
             font-weight: 800;
             font-size: 3.2rem;
         }
@@ -117,6 +159,12 @@
         input {
             &[type="submit"] {
                 height: 3.6rem;
+            }
+        }
+        .modal {
+            form {
+                width: 65rem;
+                border: none;
             }
         }
     }

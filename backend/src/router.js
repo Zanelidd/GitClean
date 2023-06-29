@@ -15,13 +15,22 @@ const StateController = require("./controllers/stateController");
 const databaseControllers = require("./controllers/databaseControllers");
 
 const validateProduct = require("./services/validateProduct");
+const validateOs = require("./services/validateOs");
+const validateBrand = require("./services/validateBrand");
+const validateRam = require("./services/validateRam");
+const validateStorage = require("./services/validateStorage");
 
-router.get("/os", osControllers.browse);
+router.get("/oss", osControllers.browse);
 router.get("/brands", brandControllers.browse);
 router.get("/networks", networkControllers.browse);
 router.get("/rams", ramControllers.browse);
 router.get("/storages", storageControllers.browse);
 router.get("/state", StateController.findState);
+
+router.post("/oss", validateOs, osControllers.add);
+router.post("/brands", validateBrand, brandControllers.add);
+router.post("/rams", validateRam, ramControllers.add);
+router.post("/storages", validateStorage, storageControllers.add);
 
 router.post(
   "/products",
