@@ -26,7 +26,11 @@ export default function Home() {
             <p>Nouvel appareil</p>
           </button>
         )}
-        <button type="button" className="button-estimate">
+        <button
+          type="button"
+          className="button-estimate"
+          onClick={() => handleClick("phone/estimate")}
+        >
           <img src="./src/assets/percent.svg" alt="icone pourcentage" />
           <p>Estimer appareil</p>
         </button>
@@ -39,7 +43,7 @@ export default function Home() {
             <button
               type="button"
               className="button-all"
-              onClick={() => handleClick("phone")}
+              onClick={() => handleClick("database")}
             >
               <img src="./src/assets/list.svg" alt="icone liste" />
               <p>Tous les appareil</p>
