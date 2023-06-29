@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 /**
- * @site GitClean
+ * @site GitClean for Emmaüs Connect
  * @author Damien Arnaud, Victor Brito, Frederico Cassola, Charlotte Charrier, Anthony Lasternas
  */
 
@@ -16,8 +16,11 @@
 @use "sass/header";
 @use "sass/home";
 @use "sass/admin";
+@use "sass/add-user";
 @use "sass/estimate-phone";
 @use "sass/database";
 @use "sass/select-phone";
 @use "sass/faq";
 @use "sass/error";
+@use "sass/edit-user";
+

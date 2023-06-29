@@ -13,7 +13,7 @@ export default function Admin() {
         <button
           type="button"
           className="button-add"
-          onClick={() => handleClick("phone/add")}
+          onClick={() => handleClick("admin/user/add")}
         >
           <img
             src="./src/assets/user-plus.svg"
@@ -21,7 +21,11 @@ export default function Admin() {
           />
           <p>Ajouter un utilisateur</p>
         </button>
-        <button type="button" className="button-modify">
+        <button
+          type="button"
+          className="button-modify"
+          onClick={() => handleClick("admin/user/edit")}
+        >
           <img src="./src/assets/oneuser.svg" alt="icone personnage" />
           <p>Modifier un utilisateur</p>
         </button>

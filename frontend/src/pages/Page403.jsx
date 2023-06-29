@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import image403X4 from "../assets/403@4x.jpg";
 import image403X3 from "../assets/403@3x.jpg";
 import image403X2 from "../assets/403@2x.jpg";
@@ -25,6 +27,7 @@ export default function Page403() {
         Que vous cherchiez ou non à déverrouiller un smartphone par des moyens
         pas très catholiques, vous n’avez pas l’autorisation d’accéder à cette
         ressource.
+        <Link to="/">Retour</Link>
       </p>
     </section>
   );

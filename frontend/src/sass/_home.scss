@@ -1,3 +1,4 @@
+
 body {
   .background-logo {
     z-index: -1;
@@ -11,6 +12,7 @@ body {
     
   }
 }
+
 .home-container {
   height: 90vh;
   width: 100vw;
@@ -52,6 +54,9 @@ body {
       justify-content: space-around;
       align-items: center;
       font-family: var(--font);
+      &:hover {
+        transform: scale(1.5);
+      }
     }
     .button-new {
       background: #00acb0;
