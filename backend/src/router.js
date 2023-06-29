@@ -11,6 +11,8 @@ const productControllers = require("./controllers/productControllers");
 const productRamControllers = require("./controllers/productRamControllers");
 const productStorageControllers = require("./controllers/productStorageControllers");
 const authControllers = require("./controllers/authControllers");
+const StateController = require("./controllers/stateController");
+const databaseControllers = require("./controllers/databaseControllers");
 
 const validateProduct = require("./services/validateProduct");
 const validateOs = require("./services/validateOs");
@@ -23,6 +25,7 @@ router.get("/brands", brandControllers.browse);
 router.get("/networks", networkControllers.browse);
 router.get("/rams", ramControllers.browse);
 router.get("/storages", storageControllers.browse);
+router.get("/state", StateController.findState);
 
 router.post("/oss", validateOs, osControllers.add);
 router.post("/brands", validateBrand, brandControllers.add);
@@ -38,5 +41,7 @@ router.post(
 );
 
 router.post("/users", authControllers.login);
+
+router.get("/database", databaseControllers.browsePhones);
 
 module.exports = router;
