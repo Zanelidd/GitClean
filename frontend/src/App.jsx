@@ -5,6 +5,7 @@ import Admin from "./pages/Admin";
 import Home from "./pages/Home";
 import Database from "./pages/Database";
 import AddPhone from "./pages/AddPhone";
+import EstimatePhone from "./pages/EstimatePhone";
 import Layout from "./layouts/Layout";
 import Phones from "./pages/Phones";
 
@@ -22,6 +23,8 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/phone" element={<Phones />} />
             <Route path="/phone/add" element={<AddPhone />} />
+            <Route path="/phone/estimate" element={<EstimatePhone />} />
+            <Route path="/database" element={<Database />} />
           </Route>
         </Routes>
       </Router>

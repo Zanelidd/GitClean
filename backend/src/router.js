@@ -11,6 +11,7 @@ const productControllers = require("./controllers/productControllers");
 const productRamControllers = require("./controllers/productRamControllers");
 const productStorageControllers = require("./controllers/productStorageControllers");
 const authControllers = require("./controllers/authControllers");
+const StateController = require("./controllers/stateController");
 const databaseControllers = require("./controllers/databaseControllers");
 
 const validateProduct = require("./services/validateProduct");
@@ -20,6 +21,7 @@ router.get("/brands", brandControllers.browse);
 router.get("/networks", networkControllers.browse);
 router.get("/rams", ramControllers.browse);
 router.get("/storages", storageControllers.browse);
+router.get("/state", StateController.findState);
 
 router.post(
   "/products",

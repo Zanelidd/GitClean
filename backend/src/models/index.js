@@ -39,6 +39,7 @@ const ProductRamManager = require("./ProductRamManager");
 const ProductStorageManager = require("./ProductStorageManager");
 const DatabaseManager = require("./DatabaseManager");
 const UsersManager = require("./UsersManager");
+const StateManager = require("./StateManager");
 
 models.os = new OsManager();
 models.os.setDatabase(pool);
@@ -56,9 +57,10 @@ models.product_ram = new ProductRamManager();
 models.product_ram.setDatabase(pool);
 models.product_storage = new ProductStorageManager();
 models.product_storage.setDatabase(pool);
+models.state = new StateManager();
+models.state.setDatabase(pool);
 models.database = new DatabaseManager();
 models.database.setDatabase(pool);
-
 models.users = new UsersManager();
 models.users.setDatabase(pool);
 
