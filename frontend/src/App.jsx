@@ -4,11 +4,15 @@ import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import Home from "./pages/Home";
 import Database from "./pages/Database";
+import Phones from "./pages/Phones";
 import AddPhone from "./pages/AddPhone";
 import EstimatePhone from "./pages/EstimatePhone";
+
+import FAQ from "./pages/FAQ";
 import Layout from "./layouts/Layout";
 import Phones from "./pages/Phones";
 import SelectPhone from "./pages/SelectPhone";
+
 
 import "./styles.scss";
 
@@ -28,6 +32,7 @@ function App() {
               <Route path="estimate" element={<EstimatePhone />} />
             </Route>
             <Route path="/database" element={<Database />} />
+            <Route path="/faq" element={<FAQ />} />
           </Route>
         </Routes>
       </Router>
