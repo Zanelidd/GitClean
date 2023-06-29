@@ -39,7 +39,7 @@ export default function Home() {
             <button
               type="button"
               className="button-all"
-              onClick={() => handleClick("phone")}
+              onClick={() => handleClick("database")}
             >
               <img src="./src/assets/list.svg" alt="icone liste" />
               <p>Tous les appareil</p>
