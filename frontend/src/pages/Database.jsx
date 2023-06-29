@@ -11,6 +11,41 @@ export default function Database() {
       .then((response) => setItemsListData(response.data))
       .catch((err) => console.error(err));
   }, []);
+
+  const downloadFile = ({ data, fileName, fileType }) => {
+    const blob = new Blob([data], { type: fileType });
+
+    const a = document.createElement("a");
+    a.download = fileName;
+    a.href = window.URL.createObjectURL(blob);
+    const clickEvt = new MouseEvent("click", {
+      view: window,
+      bubbles: true,
+      cancelable: true,
+    });
+    a.dispatchEvent(clickEvt);
+    a.remove();
+  };
+
+  const exportToCsv = (e) => {
+    e.preventDefault();
+
+    const headers = [
+      "Id;Marque;Modele;Ecran;Reseau;Systeme d exploitation;RAM;Stockage",
+    ];
+
+    const itemsCsv = itemsListData.reduce((acc, item) => {
+      const { id, brand, model, screen, network, os, ram, storage } = item;
+      acc.push([id, brand, model, screen, network, os, ram, storage].join(";"));
+      return acc;
+    }, []);
+
+    downloadFile({
+      data: [...headers, ...itemsCsv].join("\n"),
+      fileName: "products.csv",
+      fileType: "text/csv",
+    });
+  };
   return (
     <div className="database-container">
       <h1>Tous les appareils</h1>
@@ -35,7 +70,9 @@ export default function Database() {
         </div>
       </div>
       <div className="button-container">
-        <button type="button">Export fichier .CSV</button>
+        <button type="button" onClick={exportToCsv}>
+          Export fichier .CSV
+        </button>
       </div>
     </div>
   );
