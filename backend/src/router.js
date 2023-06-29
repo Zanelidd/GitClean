@@ -14,6 +14,7 @@ const authControllers = require("./controllers/authControllers");
 const StateController = require("./controllers/stateController");
 const databaseControllers = require("./controllers/databaseControllers");
 const screenController = require("./controllers/screenControllers");
+const usersControllers = require("./controllers/userControllers");
 
 const validateProduct = require("./services/validateProduct");
 const validateOs = require("./services/validateOs");
@@ -46,5 +47,8 @@ router.post("/users", authControllers.login);
 
 router.get("/database", databaseControllers.browsePhones);
 router.post("/database", databaseControllers.selectPhones);
+
+router.post("/users/add", usersControllers.addUser);
+router.put("/users/:id", usersControllers.editUser);
 
 module.exports = router;
