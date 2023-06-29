@@ -8,10 +8,8 @@ import Phones from "./pages/Phones";
 import AddPhone from "./pages/AddPhone";
 import EstimatePhone from "./pages/EstimatePhone";
 import Page404 from "./pages/Page404";
-
 import FAQ from "./pages/FAQ";
 import Layout from "./layouts/Layout";
-
 import SelectPhone from "./pages/SelectPhone";
 
 import "./styles.scss";
