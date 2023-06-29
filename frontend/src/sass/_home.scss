@@ -1,3 +1,15 @@
+body {
+  .background-logo {
+    height: 25rem;
+    width: 35rem;
+    position: absolute;
+    bottom : -3rem;
+    left : -16rem;
+    background-image: url("assets/Rectangle.png");
+    background-repeat: no-repeat;
+    
+  }
+}
 .home-container {
   height: 90vh;
   width: 100vw;
@@ -8,6 +20,7 @@
   p {
     color: white;
     font-size: 1.7rem;
+    font-family: var(--font);
   }
   .button-container {
     height: 70vh;
@@ -16,14 +29,14 @@
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap:1rem;
-    @media screen and (min-width : 768px) {
-        width: 60vw;
-        justify-content: center;
+    gap: 1rem;
+    @media screen and (min-width: 768px) {
+      width: 60vw;
+      justify-content: center;
     }
-    @media screen and (min-width : 1024px) {
-        width: 70vw;
-        gap:1.5rem;
+    @media screen and (min-width: 1024px) {
+      width: 70vw;
+      gap: 1.5rem;
     }
 
     button {
@@ -31,11 +44,13 @@
       width: 13rem;
       border: none;
       border-radius: 1rem;
+      padding: 0.4rem;
       box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
       display: flex;
       flex-direction: column;
       justify-content: space-around;
       align-items: center;
+      font-family: var(--font);
     }
     .button-new {
       background: #00acb0;

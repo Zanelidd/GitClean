@@ -6,14 +6,15 @@
   align-items: center;
   justify-content: center;
   gap: 5rem;
+  background-color: white;
 
   .logo {
     max-width: 75%;
     @media screen and (min-width: 768px) {
-      max-width: 45%;
+      max-width: 35%;
     }
     @media screen and (min-width: 1024px) {
-      max-width: 35%;
+      max-width: 30%;
     }
   }
 
@@ -36,6 +37,7 @@
       color: #002743;
       font-size: 1.6rem;
       font-weight: 800;
+      font-family: var(--font);
     }
 
     .form-container {
@@ -54,6 +56,7 @@
         border-radius: 10px;
         background: #002743;
         color: white;
+        font-family: var(--font);
         &:hover {
           color: #002743;
           background: white;
@@ -79,6 +82,7 @@
         justify-content: center;
         align-items: center;
         gap: 1rem;
+        font-family: var(--font);
 
         input {
           padding: 0.5rem;
@@ -87,6 +91,9 @@
           border: none;
           width: 100%;
           height: 2.2rem;
+          font-family: var(--font);
+          font-size: 1.4rem;
+          font-weight: 600;
         }
 
         label {
@@ -94,6 +101,7 @@
           color: #002743;
           font-size: 1.2rem;
           font-weight: 600;
+          font-family: var(--font);
         }
       }
     }
