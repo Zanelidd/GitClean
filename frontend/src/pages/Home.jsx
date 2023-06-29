@@ -13,7 +13,6 @@ export default function Home() {
   const handleClick = (arg) => {
     navigate(`/${arg}`);
   };
-
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
