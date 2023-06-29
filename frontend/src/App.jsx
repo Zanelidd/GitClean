@@ -30,7 +30,7 @@ function App() {
             <Route path="/phone" element={<Phones />} />
             <Route path="/phone/add" element={<AddPhone />} />
             <Route path="/phone/select" element={<SelectPhone />} />
-            <Route path="estimate" element={<EstimatePhone />} />
+            <Route path="/phone/select/estimate" element={<EstimatePhone />} />
             <Route path="/database" element={<Database />} />
             <Route path="/admin/user/add" element={<AddUser />} />
             <Route path="/admin/user/edit" element={<EditUser />} />

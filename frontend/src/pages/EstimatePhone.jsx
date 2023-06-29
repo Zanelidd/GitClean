@@ -1,11 +1,15 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import BottomPriceContainer from "../components/BottomPriceContainer";
 import BottomSelectState from "../components/BottomSelectState";
+import ProductContext from "../contexts/ProductContext";
 
 export default function EstimatePhone() {
   const [state, setState] = useState([]);
+  const { selected } = useContext(ProductContext);
   const [selectedState, setSelectedState] = useState([]);
+
+  console.info("selected : ", selected);
 
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_BACKEND_URL}/state`).then((response) => {
@@ -13,26 +17,23 @@ export default function EstimatePhone() {
     });
   }, []);
 
-  // useEffect(() => {
-  //   axios.get(`${import.meta.env.VITE_BACKEND_URL}/product`).then((response) => {
-  //     setTimeout(() => setState(response.data), 500);
-  //   });
-  // }, []);
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
-      {state.length && (
+      {selected.brandname?.length && (
         <div className="estimate-container">
           <div className="caract-container">
             <img src="/src/assets/phone_14_01.jpg" alt="" />
             <div className="side-content">
-              <h2 className="side-content-title">Marque - Modèle téléphone</h2>
+              <h2 className="side-content-title">
+                {selected.brandname} - {selected.model}
+              </h2>
               <div className="infos-container">
-                <p>Système d'exploitation : </p>
-                <p>Taille d'écran :</p>
-                <p>Réseau :</p>
-                <p>Ram :</p>
-                <p>Capacité de stockage :</p>
+                <p>Système d'exploitation : {selected.os} </p>
+                <p>Taille d'écran : {selected.screen}</p>
+                <p>Réseau : {selected.network}</p>
+                <p>Ram : {selected.ram}</p>
+                <p>Capacité de stockage : {selected.storage}</p>
                 {selectedState.length > 0 && <p>Etat : {selectedState} </p>}
               </div>
             </div>
