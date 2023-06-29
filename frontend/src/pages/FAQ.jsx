@@ -1,7 +1,7 @@
 export default function FAQ() {
   return (
     <div>
-      <p>FOIRE AUX QUESTIONS</p>
+      <h1>Foire aux questions</h1>
     </div>
   );
 }
