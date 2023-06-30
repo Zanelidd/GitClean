@@ -54,7 +54,7 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link to="estimate" className="link-style">
+            <Link to="phone/select" className="link-style">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
