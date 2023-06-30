@@ -72,7 +72,30 @@
           width: 22rem;
           height: 3rem;
         }
-      }
+
+
+    }
+
+    .butons {
+        display:flex;
+    width: 27rem;
+    justify-content: space-between;
+    @media screen and (min-width:768px){
+        display:flex;
+        justify-content: space-between; 
+        width:100%
+    }  
+
+    }
+    .img {
+        background: url("/src/assets/Group_31.png") no-repeat left bottom;
+        width: 7rem;
+        height: 5rem;
+        @media screen and (min-width:768px){
+            height: 6rem;   
+        }
+
+ 
     }
     .editUser-submit {
       border-radius: 10px;
@@ -117,5 +140,4 @@
         height: 3rem;
       }
     }
-  }
-}
+
