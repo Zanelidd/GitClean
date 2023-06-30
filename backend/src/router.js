@@ -17,7 +17,6 @@ const screenController = require("./controllers/screenControllers");
 const categoryController = require("./controllers/categoryController");
 const usersControllers = require("./controllers/userControllers");
 
-
 const validateProduct = require("./services/validateProduct");
 const validateOs = require("./services/validateOs");
 const validateBrand = require("./services/validateBrand");
