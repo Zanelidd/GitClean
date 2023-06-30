@@ -81,11 +81,11 @@ CREATE TABLE
 CREATE TABLE
     users (
         id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-        firstname VARCHAR(50) NOT NULL,
+        firstname VARCHAR(100) NOT NULL,
+        lastname VARCHAR(100) NOT NULL,
         email VARCHAR(254) NOT NULL,
         password VARCHAR(254) NOT NULL,
-        admin TINYINT NOT NULL,
-        statut VARCHAR(254) NOT NULL
+        admin TINYINT NOT NULL
     );
 
 -- Inserts
@@ -98,7 +98,8 @@ VALUES ('HC', NULL, NULL), ('C', 90, 164.99), ('B', 165, 254.99), ('A', 255, 374
 
 -- state
 
-INSERT INTO state (name, weighting)
+INSERT INTO
+    state (name, weighting)
 VALUES ('DEEE', 0), ('Réparable', 0.5), ('Bloqué', 0.9), ('Reconditionnable', 0.95), ('Reconditionné', 1), ('Bon état', 1.05), ('Neuf', 1.1);
 
 -- os
@@ -108,12 +109,14 @@ VALUES ('Android 8'), ('Android 8.1'), ('Android 9'), ('Android 10'), ('Android 
 
 -- ram
 
-INSERT INTO ram (name,valM) VALUES ('1 Go',30), ('2 Go',40), ('3 Go',54), ('4 Go',60), ('6 Go',70), ('8 Go',80), ('12 Go',90), ('16 Go',100);
+INSERT INTO ram (name, valM)
+VALUES ('1 Go', 30), ('2 Go', 40), ('3 Go', 54), ('4 Go', 60), ('6 Go', 70), ('8 Go', 80), ('12 Go', 90), ('16 Go', 100);
 
 -- storage
 
-
-INSERT INTO storage (name,valS) VALUES ('16 Go',30), ('32 Go',45), ('64 Go',65), ('128 Go',75), ('256 Go',85), ('512 Go',95), ('1 To',120);
+INSERT INTO
+    storage (name, valS)
+VALUES ('16 Go', 30), ('32 Go', 45), ('64 Go', 65), ('128 Go', 75), ('256 Go', 85), ('512 Go', 95), ('1 To', 120);
 
 -- network
 
@@ -124,33 +127,33 @@ INSERT INTO network (name) VALUES ('3G'),('4G'),('5G');
 INSERT INTO
     users (
         firstname,
+        lastname,
         email,
         password,
-        admin,
-        statut
+        admin
     )
 VALUES (
         'toto',
+        'toto',
         'toto@toto.com',
         '$argon2id$v=19$m=65536,t=3,p=4$mxxTymqbnIRjE2YIO/bRjA$wzdECEb3RNPWFo2NdVCvl+EjTraYJhuNMub8YiNBMhc',
-        1,
-        "admin"
+        1
     );
 
 INSERT INTO
     users (
         firstname,
+        lastname,
         email,
         password,
-        admin,
-        statut
+        admin
     )
 VALUES (
         'tata',
+        'tata',
         'tata@toto.com',
         '$argon2id$v=19$m=65536,t=3,p=4$mxxTymqbnIRjE2YIO/bRjA$wzdECEb3RNPWFo2NdVCvl+EjTraYJhuNMub8YiNBMhc',
-        2,
-        "salarié"
+        2
     );
 
 -- brand
@@ -170,6 +173,7 @@ VALUES (1, "iphone 10", "6'", 3, 12), (2, "Galaxy 12", "6'", 2, 7), (2, "iphone 
 INSERT INTO
     product_ram (product_id, ram_id)
 VALUES (1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (7, 7), (8, 1), (9, 2), (10, 3), (11, 4), (12, 5), (13, 6), (14, 7), (15, 1), (16, 2), (17, 3), (18, 4), (19, 5), (20, 6);
+
 INSERT INTO
     product_storage (product_id, storage_id)
 VALUES (1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (7, 7), (8, 1), (9, 2), (10, 3), (11, 4), (12, 5), (13, 6), (14, 7), (15, 1), (16, 2), (17, 3), (18, 4), (19, 5), (20, 6);
