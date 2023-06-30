@@ -25,8 +25,10 @@ export default function EditUser() {
           <p>Role* :</p>
           <input className="input-role" type="text" name="role" />
         </label>
-
-        <input className="editUser-submit" type="submit" value="Envoyer" />
+        <div className="butons">
+          <input className="editUser-submit" type="submit" value="Modifier" />
+          <div className="img" />
+        </div>
       </form>
     </div>
   );
