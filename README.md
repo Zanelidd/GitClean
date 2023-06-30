@@ -1,7 +1,8 @@
-## Concept
+# Emmaüs Connect (by GitClean)
 
-This template is meant to serve as a foundation for every P2/P3 following the React-Express-MySQL stack, as learned in Wild Code School.
-It's pre-configured with a set of tools which'll help students produce industry-quality and easier-to-maintain code, while staying as simple as possible to use.
+This repository is the fruit of a hackathon made during a course at Wild Code School. This is a team project with contributions from [@AnthonyLASTERNAS](https://github.com/AnthonyLASTERNAS), [@ChaCharrier](https://github.com/ChaCharrier), [@Frederico-Cassola-Dev](https://github.com/Frederico-Cassola-Dev), [@webdevbynight](https://github.com/webdevbynight) and me.
+
+The project is based on React on the client side and on Node.js and Express.js on the server side.
 
 ## Setup & Use
 
