@@ -1,0 +1,176 @@
+/* Add phone */
+
+.add-phone {
+  --primary-colour: #253d8b;
+  --background-primary-colour: #00acb0;
+  --background-secondary-colour: #002743;
+  --error-colour: #e6354c;
+  font-size: 1.2rem;
+  margin: 3.3rem 5rem;
+  h1,
+  h2 {
+    font-size: 1.8rem;
+    color: var(--primary-colour);
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--background-primary-colour);
+  }
+  h1 {
+    + p {
+      font-style: italic;
+      text-align: center;
+    }
+  }
+  p,
+  fieldset {
+    margin-block: 1.6rem;
+  }
+  p {
+    display: flex;
+    flex-direction: column;
+    &:last-of-type {
+      gap: 1rem;
+    }
+  }
+  fieldset {
+    ul {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+    li {
+      flex-basis: 6rem;
+      display: inline-flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    label {
+      font-weight: normal;
+    }
+  }
+  legend,
+  label {
+    font-weight: bold;
+    color: var(--primary-colour);
+  }
+  input,
+  select {
+    color: var(--primary-colour);
+    height: 2.5rem;
+    padding: 0.3rem 1.4rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.4rem 0.4rem rgb(0 0 0 / 0.25);
+  }
+  input {
+    &[type="checkbox"] {
+      height: auto;
+      padding: 0;
+      box-shadow: none;
+    }
+    &[type="submit"],
+    &[type="reset"] {
+      font-weight: bold;
+      font-size: 1.4rem;
+      line-height: 0;
+      color: var(--background-primary-colour);
+      background: transparent;
+      align-self: center;
+      max-width: max-content;
+    }
+    &[type="submit"] {
+      color: white;
+      background: var(--background-primary-colour);
+      padding: 0.6rem 2.2rem;
+      border: none;
+      &:hover {
+        background-color: white;
+        border: 1px solid var(--background-primary-colour);
+        color: var(--background-primary-colour);
+      }
+      &:active {
+        transform: scale(1.1);
+      }
+    }
+  }
+  select {
+    background: transparent;
+  }
+  .additionable-field {
+    display: grid;
+    grid-template-columns: 1fr 2.4rem;
+    column-gap: 1rem;
+    align-items: center;
+    label {
+      grid-column: 1 / -1;
+    }
+  }
+  .add-extra {
+    border: none;
+  }
+  .error {
+    color: var(--error-colour);
+    margin-left: 0.5rem;
+  }
+  .modal {
+    display: grid;
+    place-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    &::before {
+      background: rgb(0 0 0 / 0.75);
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+    }
+    form {
+      background: white;
+      width: 80vw;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 1;
+    }
+  }
+  @media (min-width: 700px) {
+    font-size: 2rem;
+    max-width: 60rem;
+    margin-inline: auto;
+    h1,
+    h2 {
+      font-weight: 800;
+      font-size: 3.2rem;
+    }
+    form {
+      padding: 3.5rem 6.6rem 2.4rem;
+      border: 1px solid var(--primary-colour);
+      border-radius: 0.5rem;
+    }
+    fieldset {
+      li {
+        flex-basis: 10rem;
+      }
+    }
+    input,
+    select {
+      height: 3.2rem;
+    }
+    input {
+      &[type="submit"] {
+        height: 3.6rem;
+      }
+    }
+    .modal {
+      form {
+        width: 65rem;
+        border: none;
+      }
+    }
+  }
+}

@@ -29,10 +29,43 @@ pool.getConnection().catch(() => {
 
 const models = {};
 
-const ItemManager = require("./ItemManager");
+const OsManager = require("./OsManager");
+const BrandManager = require("./BrandManager");
+const NetworkManager = require("./NetworkManager");
+const RamManager = require("./RamManager");
+const StorageManager = require("./StorageManager");
+const ProductManager = require("./ProductManager");
+const ProductRamManager = require("./ProductRamManager");
+const ProductStorageManager = require("./ProductStorageManager");
+const DatabaseManager = require("./DatabaseManager");
+const UsersManager = require("./UsersManager");
+const StateManager = require("./StateManager");
+const CategoryManager = require("./CategoryManager");
 
-models.item = new ItemManager();
-models.item.setDatabase(pool);
+models.os = new OsManager();
+models.os.setDatabase(pool);
+models.brand = new BrandManager();
+models.brand.setDatabase(pool);
+models.network = new NetworkManager();
+models.network.setDatabase(pool);
+models.ram = new RamManager(pool);
+models.ram.setDatabase(pool);
+models.storage = new StorageManager();
+models.storage.setDatabase(pool);
+models.product = new ProductManager();
+models.product.setDatabase(pool);
+models.product_ram = new ProductRamManager();
+models.product_ram.setDatabase(pool);
+models.product_storage = new ProductStorageManager();
+models.product_storage.setDatabase(pool);
+models.state = new StateManager();
+models.state.setDatabase(pool);
+models.database = new DatabaseManager();
+models.database.setDatabase(pool);
+models.users = new UsersManager();
+models.users.setDatabase(pool);
+models.category = new CategoryManager();
+models.category.setDatabase(pool);
 
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model

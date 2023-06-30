@@ -1,0 +1,16 @@
+/* Font */
+
+@font-face {
+  font-family: Raleway;
+  src: url("/src/assets/fonts/Raleway-VariableFont_wght.woff2")
+    format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: Raleway;
+  src: url("/src/assets/fonts/Raleway-Italic-VariableFont_wght.woff2")
+    format("woff2-variations");
+  font-weight: 100 900;
+  font-style: italic;
+}

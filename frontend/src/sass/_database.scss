@@ -1,0 +1,94 @@
+.database-container {
+  --primary-color: #253d8b;
+  --background-primary-color: #00acb0;
+  --background-secondary-color: #002743;
+  --error-colour: #e6354c;
+  font-size: 1.2rem;
+  margin: 3.3rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100%;
+  min-width: 55vw;
+
+  h1 {
+    position: relative;
+    padding-right: 30%;
+    padding-left: 2%;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    border-bottom: 2px solid #00acb0;
+  }
+
+  .tables-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 95%;
+    margin-top: 3rem;
+    gap: 1rem;
+    height: 60vh;
+
+    .table-products-container {
+      max-height: 90%;
+      max-width: 100%;
+      flex-grow: 1;
+      overflow: auto;
+
+      .table-products {
+        width: 100%;
+        color: #002743;
+
+        .column-header {
+          position: sticky;
+          top: auto;
+          left: 0;
+          min-width: 11rem;
+          padding: 5px;
+          min-width: 11rem;
+          border-bottom: 2px solid #00acb0;
+          background-color: #ffcc1b;
+        }
+
+        td {
+          min-width: 11rem;
+          text-align: center;
+        }
+
+        tr:nth-child(odd) {
+          font-weight: 500;
+          background-color: #fff;
+        }
+
+        tr:nth-child(even) {
+          font-weight: 700;
+          background-color: rgb(196, 196, 196);
+        }
+      }
+    }
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  button {
+    margin-top: 2rem;
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+    color: #fff;
+    background-color: #00acb0;
+    border-radius: 1rem;
+    &:hover {
+      background-color: white;
+      border: 1px solid var(--background-primary-color);
+      color: var(--background-primary-color);
+    }
+    &:active {
+      transform: scale(1.1);
+    }
+  }
+}
