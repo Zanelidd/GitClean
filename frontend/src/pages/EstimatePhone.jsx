@@ -8,8 +8,11 @@ export default function EstimatePhone() {
   const [state, setState] = useState([]);
   const { selected } = useContext(ProductContext);
   const [selectedState, setSelectedState] = useState([]);
+  const [categories, setCategories] = useState();
+  const [price, setPrice] = useState();
 
-  console.info("selected : ", selected);
+  console.info("selectedState : ", selectedState);
+  console.info("categories : ", categories);
 
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_BACKEND_URL}/state`).then((response) => {
@@ -17,10 +20,27 @@ export default function EstimatePhone() {
     });
   }, []);
 
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/categories`)
+      .then((response) => {
+        setTimeout(() => setCategories(response.data), 500);
+      });
+  }, []);
+
+  function calculate() {
+    const calcul = (selected.valM + selected.valS) * selectedState.weighting;
+
+    setPrice(calcul);
+  }
+  useEffect(() => {
+    calculate();
+  }, [selectedState]);
+
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
-      {selected.brandname?.length && (
+      {selected && (
         <div className="estimate-container">
           <div className="caract-container">
             <img src="/src/assets/phone_14_01.jpg" alt="" />
@@ -34,12 +54,12 @@ export default function EstimatePhone() {
                 <p>Réseau : {selected.network}</p>
                 <p>Ram : {selected.ram}</p>
                 <p>Capacité de stockage : {selected.storage}</p>
-                {selectedState.length > 0 && <p>Etat : {selectedState} </p>}
+                {selectedState.name && <p>Etat : {selectedState.name} </p>}
               </div>
             </div>
           </div>
-          {selectedState.length > 0 && <BottomPriceContainer />}
-          {!selectedState.length && (
+          {selectedState.name && <BottomPriceContainer price={price} />}
+          {!selectedState.name && (
             <BottomSelectState
               state={state}
               setSelectedState={setSelectedState}

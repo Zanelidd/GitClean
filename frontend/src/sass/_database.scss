@@ -48,7 +48,7 @@
           padding: 5px;
           min-width: 11rem;
           border-bottom: 2px solid #00acb0;
-          background-color: #FFCC1B;
+          background-color: #ffcc1b;
         }
 
         td {
@@ -88,7 +88,7 @@
       color: var(--background-primary-color);
     }
     &:active {
-      transform:scale(1.1);
+      transform: scale(1.1);
     }
-  } 
+  }
 }
