@@ -72,15 +72,15 @@
             rgba(16, 16, 16, 0.4) 1px 10px 10px, white -0.15em -0.1em 100px;
         }
         &:active {
-          transform:scale(1.1);
+          transform: scale(1.1);
+        }
+        @media screen and (min-width: 1024px) {
+          margin-top: 5%;
+          width: 16rem;
+          height: 4rem;
+          font-size: 2rem;
+        }
       }
-      @media screen and (min-width: 1024px) {
-        margin-top: 5%;
-        width: 16rem;
-        height:4rem;
-        font-size: 2rem;
-      }
-    }
 
       .input-container {
         height: 65%;
