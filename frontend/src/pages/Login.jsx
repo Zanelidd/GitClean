@@ -4,10 +4,9 @@ import { useNavigate } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
 
 export default function Login() {
-  const { user, setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  console.info("user :", user);
 
   const navigate = useNavigate();
 

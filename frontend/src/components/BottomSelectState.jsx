@@ -11,7 +11,9 @@ export default function BottomSelectState({ state, setSelectedState }) {
               type="button"
               key={stat.id}
               className="button-state"
-              onClick={() => setSelectedState(stat.name)}
+              onClick={() => {
+                setSelectedState(stat);
+              }}
             >
               {stat.name}
             </button>

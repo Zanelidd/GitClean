@@ -40,6 +40,7 @@ const ProductStorageManager = require("./ProductStorageManager");
 const DatabaseManager = require("./DatabaseManager");
 const UsersManager = require("./UsersManager");
 const StateManager = require("./StateManager");
+const CategoryManager = require("./CategoryManager");
 
 models.os = new OsManager();
 models.os.setDatabase(pool);
@@ -63,6 +64,8 @@ models.database = new DatabaseManager();
 models.database.setDatabase(pool);
 models.users = new UsersManager();
 models.users.setDatabase(pool);
+models.category = new CategoryManager();
+models.category.setDatabase(pool);
 
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
