@@ -1,12 +1,25 @@
 const models = require("../models");
 const { hashPassword } = require("../services/checkAuth");
 
+const browse = (req, res) => {
+  models.users
+    .findAll()
+    .then(([rows]) => {
+      res.send(rows);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 const addUser = async (req, res) => {
-  const { firstname, email, password, admin, statut } = req.body;
+  const { firstname, lastname, email, password, isAdmin } = req.body;
+
   const hash = await hashPassword(password);
 
   models.users
-    .insert({ firstname, email, hash, admin, statut })
+    .insert({ firstname, lastname, email, hash, isAdmin })
     .then(([result]) => {
       res.status(201).json(result);
     })
@@ -37,6 +50,7 @@ const editUser = (req, res) => {
 };
 
 module.exports = {
+  browse,
   addUser,
   editUser,
 };

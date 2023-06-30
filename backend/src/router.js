@@ -48,6 +48,7 @@ router.post("/users", authControllers.login);
 router.get("/database", databaseControllers.browsePhones);
 router.post("/database", databaseControllers.selectPhones);
 
+router.get("/users", usersControllers.browse);
 router.post("/users/add", usersControllers.addUser);
 router.put("/users/:id", usersControllers.editUser);
 
