@@ -69,7 +69,6 @@
   }
 }
 
-
 .login-menu {
   position: absolute;
   top: 10.5vh;
@@ -83,7 +82,7 @@
   animation: openLoginMenu 350ms 1 ease-in-out;
 
   > :first-child {
-    &> :last-child {
+    & > :last-child {
       padding-bottom: 15px;
     }
   }

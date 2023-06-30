@@ -48,7 +48,7 @@
         text-align: center;
         width: 100%;
         @media screen and (min-width: 768px) {
-          font-size: 2rem;
+          font-size: 2.5rem;
         }
       }
       .infos-container {
@@ -124,6 +124,13 @@
 
     .title {
       text-align: center;
+      font-family: var(--font);
+      font-weight: 600;
+      font-size: 1.6rem;
+      color:#253d8b;
+      @media screen and (min-width: 1024px) {
+        font-size: 2rem;
+      }
     }
 
     .state-button-container {
