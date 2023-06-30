@@ -27,7 +27,6 @@
 
     label {
 
-
       p {
         font-size: small;
         color: #233d8d;
@@ -60,7 +59,6 @@
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
         width: 10rem;
         height: 1.5rem;
-
       }
 
       .input-email {
@@ -104,7 +102,6 @@
       color: white;
       border: none;
 
-
       @media screen and (min-width:768px) {
 
         width: 20rem;
@@ -113,44 +110,39 @@
       }
     }
   }
+}
 
 
+.input-name-firstname {
+  display: flex;
+  width: 27rem;
+  justify-content: space-between;
+
+
+  @media screen and (min-width:768px) {
+    display: flex;
+    justify-content: space-between;
+    width: 100%
   }
 
+  .input-name {
+    width: 12rem;
 
-  .input-name-firstname {
-    display: flex;
-    width: 27rem;
-    justify-content: space-between;
+    @media screen and (min-width:768px) {
+
+      width: 20rem;
+      height: 3rem;
+    }
+  }
+
+  .input-firstanme {
+    width: 12rem;
 
 
     @media screen and (min-width:768px) {
-      display: flex;
-      justify-content: space-between;
-      width: 100%
 
-    }
-
-    .input-name {
-      width: 12rem;
-
-      @media screen and (min-width:768px) {
-
-        width: 20rem;
-        height: 3rem;
-      }
-    }
-
-    .input-firstanme {
-      width: 12rem;
-
-
-      @media screen and (min-width:768px) {
-
-        width: 20rem;
-        height: 3rem;
-      }
+      width: 20rem;
+      height: 3rem;
     }
   }
 }
-
