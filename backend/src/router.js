@@ -14,6 +14,7 @@ const authControllers = require("./controllers/authControllers");
 const StateController = require("./controllers/stateController");
 const databaseControllers = require("./controllers/databaseControllers");
 const screenController = require("./controllers/screenControllers");
+const categoryController = require("./controllers/categoryController");
 
 const validateProduct = require("./services/validateProduct");
 const validateOs = require("./services/validateOs");
@@ -28,6 +29,7 @@ router.get("/rams", ramControllers.browse);
 router.get("/storages", storageControllers.browse);
 router.get("/state", StateController.findState);
 router.get("/screens", screenController.findScreen);
+router.get("/categories", categoryController.browse);
 
 router.post("/oss", validateOs, osControllers.add);
 router.post("/brands", validateBrand, brandControllers.add);
