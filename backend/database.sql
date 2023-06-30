@@ -94,7 +94,7 @@ CREATE TABLE
 
 INSERT INTO
     category (name, min_value, max_value)
-VALUES ('HC', NULL, NULL), ('C', 90, 164.99), ('B', 165, 254.99), ('A', 255, 374.99), ('Premium', 375, NULL);
+VALUES ('HC', 0, 89), ('C', 90, 164.99), ('B', 165, 254.99), ('A', 255, 374.99), ('Premium', 375, NULL);
 
 -- state
 

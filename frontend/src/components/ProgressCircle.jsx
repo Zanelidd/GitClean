@@ -1,6 +1,6 @@
 import { Box, CircularProgress, Typography } from "@mui/material";
 
-function CircularProgressWithLabel(props, { categoryName }) {
+function CircularProgressWithLabel(props) {
   return (
     <Box sx={{ position: "relative", display: "inline-flex" }}>
       {/* eslint-disable-next-line react/jsx-props-no-spreading */}
@@ -15,10 +15,11 @@ function CircularProgressWithLabel(props, { categoryName }) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          color: "secondary",
         }}
       >
         <Typography variant="caption" component="div" color="text.secondary">
-          {categoryName}
+          Catégorie 4 - A
         </Typography>
       </Box>
     </Box>
